@@ -5,33 +5,45 @@ using UnityEngine;
 public class WaveMoving : MonoBehaviour
 {
 
-    public GameObject plane;
-    public GameObject wave;
+    Wave ThisWave;
 
     public int speed = 10;
-    public Vector2 Direct = new Vector2(0, 1);
+    public Vector3 Direct = new Vector3(0, 0, 1);
 
-    public int Limit = 100;
+    
+    public int MinimalHeightLimit = 2;
     bool rewind;
+    Vector2 StartPosition;
 
     void Start()
     {
         rewind = false;
-        Vector2 start = new Vector2(this.transform.position.x, this.transform.position.y);
+        StartPosition = new Vector2(this.transform.position.x, this.transform.position.z);
+        ThisWave = GetComponent<Wave>();
+    }
 
-        if (Limit > Vector2.Distance(start, new Vector2(this.transform.position.x, this.transform.position.y)) && !rewind)
+   
+
+    void Update()
+    {
+        
+        if (Wave.DistanceLimit < Vector2.Distance(StartPosition, new Vector2(this.transform.position.x, this.transform.position.z)) && rewind == false)
         {
             rewind = true;
         }
 
-        if (rewind)
+        if (rewind == true)
         {
-            this.transform.Translate(Direct * -speed);
+            this.transform.Translate(Direct * -ThisWave.Speed / 10000);
         }
         else
         {
-            this.transform.Translate(Direct * speed);
+            this.transform.Translate(Direct * ThisWave.Speed / 10000);
         }
+    }
 
+    public void RewindWave()
+    {
+        rewind = true;
     }
 }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacel : Building {
-
+public abstract class Obstacel : Building {
+    protected int addisionForse;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +13,13 @@ public class Obstacel : Building {
 	void Update () {
 		
 	}
+
+    public override void Work(GameObject Vawe)
+    {
+        Wave z = Vawe.GetComponent<Wave>();
+        if(z != null)
+        {
+             z.GeneratObstacel(builgingLevel, addisionForse);
+        }
+    }
 }

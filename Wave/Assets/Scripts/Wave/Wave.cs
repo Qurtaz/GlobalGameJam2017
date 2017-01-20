@@ -40,6 +40,14 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    
+    void GeneratObstacel(int builgingLevel)
+    {
+
+    }
+
+    void GeneratObstacel(int builgingLevel, int addisionForse)
+    {
+
+    }
 
 }

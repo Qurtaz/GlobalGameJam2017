@@ -46,31 +46,29 @@ public class ShowHighScore : MonoBehaviour {
                 break;
             }
             forLeft += (i + 1).ToString() + "." + splited[i* JUMP]  + "\n";
-            float ToGetMinutes = HighScore.UncodeHighscore(int.Parse(splited[i * JUMP + 1]));
-            int minutes = (int)ToGetMinutes / 60;
-            ToGetMinutes -= (minutes * 60);
-            forRight += minutes.ToString() + "." + ToGetMinutes.ToString() + "\n";
+            float ToGetMinutes = int.Parse(splited[i * JUMP + 1]);
+            forRight += ToGetMinutes.ToString() + "\n";
             
         }
         
         LeftColumn.text = forLeft;
         RightColumn.text = forRight;
-        if(LastSite == true)
-        {
-            ButtonNextSite.SetActive(false);
-        }
-        else
-        {
-            ButtonNextSite.SetActive(true);
-        }
-        if(ActualSite == 0)
-        {
-            ButtonPreviousSite.SetActive(false);
-        }
-        else
-        {
-            ButtonPreviousSite.SetActive(true);
-        }
+        //if(LastSite == true)
+        //{
+        //    ButtonNextSite.SetActive(false);
+        //}
+        //else
+        //{
+        //    ButtonNextSite.SetActive(true);
+        //}
+        //if(ActualSite == 0)
+        //{
+        //    ButtonPreviousSite.SetActive(false);
+        //}
+        //else
+        //{
+        //    ButtonPreviousSite.SetActive(true);
+        //}
         HighScore.EndDataDownload -= Refresh;
     }
     public void ChangeSite(int which)

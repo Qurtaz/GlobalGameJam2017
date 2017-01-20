@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cities : Building {
+public abstract class Cities : Building {
+    public float generateMoney;
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +14,16 @@ public class Cities : Building {
 	void Update () {
 		
 	}
+    public override void Work(GameObject Vawe)
+    {
+        Wave z = Vawe.GetComponent<Wave>();
+        if (z != null)
+        {
+            z.GeneratObstacel(builgingLevel);
+        }
+    }
+    public void AddMoney()
+    {
+        Player.money += generateMoney;
+    }
 }

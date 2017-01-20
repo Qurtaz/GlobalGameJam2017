@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class WaveCollider : MonoBehaviour {
 
+    Wave ThisWave;
+
+    void Start()
+    {
+        ThisWave = transform.parent.GetComponent<Wave>();
+    }
+    
+
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Buldings")
         {
-            other.gameObject.SendMessage("Work", Wave.Strength + Wave.Height);
+            other.gameObject.SendMessage("MinuesHP", ThisWave.Strength + ThisWave.Height);
+            other.gameObject.SendMessage("Work", transform.parent.gameObject);
         }
     }
 }

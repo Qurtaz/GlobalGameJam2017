@@ -4,8 +4,36 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
-    static int strength;
-    public static int Strength
+
+    public static int DistanceLimit = 2;
+    public static float MinimalHeight = 0.5f;
+
+    public float Weight = 5;
+    public float Lenght = 1;
+
+    public int StartSpeed;
+
+    public void CheckHeight()
+    {
+        if (GetComponent<Wave>().height < MinimalHeight)
+        {
+            GetComponent<WaveMoving>().RewindWave();
+        }
+    }
+
+    void Awake()
+    {
+        speed = StartSpeed;
+    }
+
+    void Start()
+    {
+        
+        Height = 8;
+    }
+
+    int strength;
+    public int Strength
     {
         get
         {
@@ -13,26 +41,32 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    static int height;
-    public static int Height // jako hp od pewnoego poziomu nie zmniejsza dmg
+    float height;
+    public float Height 
     {
         get
         {
             return height;
         }
-    }
-
-    static int speed;
-    public static int Speed
-    {
-        get
+        set
         {
-            return Speed;
+            height = value/10;
+            CheckHeight();
+            transform.localScale = new Vector3(Weight, height, Lenght);
         }
     }
 
-    static int score;
-    public static int Score
+    int speed;
+    public int Speed
+    {
+        get
+        {
+            return speed;
+        }
+    }
+
+    int score;
+    public int Score
     {
         get
         {

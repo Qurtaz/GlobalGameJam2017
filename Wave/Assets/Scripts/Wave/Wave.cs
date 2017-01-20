@@ -40,12 +40,12 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    void GeneratObstacel(int builgingLevel)
+    public void GeneratObstacel(int builgingLevel) //uderzyl w budynek
     {
 
     }
 
-    void GeneratObstacel(int builgingLevel, int addisionForse)
+    public void GeneratObstacel(int builgingLevel, int addisionForse) //uderzyl w przeszkode
     {
 
     }

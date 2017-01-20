@@ -6,6 +6,7 @@ public abstract class Building : MonoBehaviour {
     public float maxHP;
     protected float hp;
     protected int builgingLevel;
+    protected int fortificationLevet;
     protected float cost;
     protected float stamina;
     // Use this for initialization
@@ -48,9 +49,15 @@ public abstract class Building : MonoBehaviour {
     public void UpgardeFortification(float z)
     {
         stamina -= z;
+        fortificationLevet++;
     }
     public void UpgradeBuilding()
     {
         builgingLevel++;
+        hp = maxHP;
+    }
+    public virtual bool CanUpgrade()
+    {
+        return true;
     }
 }

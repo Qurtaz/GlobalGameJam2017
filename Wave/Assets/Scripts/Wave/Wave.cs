@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
-    int strength;
-    public int Strength
+    static int strength;
+    public static int Strength
     {
         get
         {
@@ -13,8 +13,8 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    int height;
-    public int Height // jako hp od pewnoego poziomu nie zmniejsza dmg
+    static int height;
+    public static int Height // jako hp od pewnoego poziomu nie zmniejsza dmg
     {
         get
         {
@@ -22,12 +22,21 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    int speed;
-    public int Speed
+    static int speed;
+    public static int Speed
     {
         get
         {
             return Speed;
+        }
+    }
+
+    static int score;
+    public static int Score
+    {
+        get
+        {
+            return score;
         }
     }
 

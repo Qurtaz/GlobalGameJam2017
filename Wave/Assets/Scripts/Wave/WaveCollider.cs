@@ -8,7 +8,7 @@ public class WaveCollider : MonoBehaviour {
     {
         if(other.tag == "Buldings")
         {
-            other.gameObject.SendMessage("Work", GetComponent<Wave>().Strength + GetComponent<Wave>().Height);
+            other.gameObject.SendMessage("Work", Wave.Strength + Wave.Height);
         }
     }
 }

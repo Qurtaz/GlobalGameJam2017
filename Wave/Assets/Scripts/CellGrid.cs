@@ -41,4 +41,28 @@ public class CellGrid : MonoBehaviour
         cell.transform.SetParent(transform, false);
         cell.transform.localPosition = position;
     }
+
+    public Cell GetCell(Vector3 position)
+    {
+        position = transform.InverseTransformPoint(position);
+        CellCoordinates coordinates = CellCoordinates.FromPosition(position);
+        int index =
+            coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        return cells[index];
+    }
+
+    public Cell GetCell(CellCoordinates coordinates)
+    {
+        int z = coordinates.Z;
+        if (z < 0 || z >= height)
+        {
+            return null;
+        }
+        int x = coordinates.X + z / 2;
+        if (x < 0 || x >= width)
+        {
+            return null;
+        }
+        return cells[x + z * width];
+    }
 }

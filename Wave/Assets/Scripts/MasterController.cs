@@ -3,20 +3,31 @@ using UnityEngine.EventSystems;
 
 public class MasterController : MonoBehaviour
 {
-
-    public CellGrid cellGrid;
-    public ControlUI control;
-    Cell previousCell;
+    public GameObject cameraSupport;
 
     void Update()
     {
+        if (Input.GetButtonDown("Cancel") == true)
+            Application.Quit();
+        else if
+            (Input.GetButtonDown("CamRotation") == true)
+        {
+            Vector3 Angle = cameraSupport.transform.eulerAngles;
+
+            if (Input.GetAxis("CamRotation") > 0)
+            {
+                transform.rotation = Quaternion.Euler(Angle.x, Angle.y + 90, Angle.z);
+            }
+            else if (Input.GetAxis("CamRotation") < 0)
+            {
+                transform.rotation = Quaternion.Euler(Angle.x, Angle.y - 90, Angle.z);
+            }
+        }
+
         if (Input.GetMouseButton(0) &&
             !EventSystem.current.IsPointerOverGameObject())
         {
             HandleInput();
-        }
-        else {
-            previousCell = null;
         }
     }
 
@@ -26,16 +37,7 @@ public class MasterController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            EditCell(cellGrid.GetCell(hit.point));
-        }
-    }
-
-    void EditCell(Cell cell)
-    {
-        if (cell)
-        {
-           Debug.Log(cell.doesHaveBuilding);
-            control.Menage(cell.gameObject);
+            //(hit.transform.gameObject)
         }
     }
 }

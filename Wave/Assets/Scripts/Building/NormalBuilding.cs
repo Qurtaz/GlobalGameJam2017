@@ -21,4 +21,9 @@ public class NormalBuilding : Cities {
 	void Update () {
 		
 	}
+
+    public void SetLevelBuilding(int z)
+    {
+        builgingLevel = z;
+    }
 }

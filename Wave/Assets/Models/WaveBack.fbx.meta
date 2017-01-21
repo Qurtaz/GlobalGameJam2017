@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3c415fcee18092a468f1da87b89782ea
-timeCreated: 1484989830
+guid: 5d032898d3518db4396ff9fff32a3042
+timeCreated: 1485028577
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,14 +9,10 @@ ModelImporter:
     100002: Cube
     100004: Lamp
     100006: //RootNode
-    100008: Camera.001
-    100010: Lamp.001
     400000: Camera
     400002: Cube
     400004: Lamp
     400006: //RootNode
-    400008: Camera.001
-    400010: Lamp.001
     2300000: Cube
     3300000: Cube
     4300000: Cube

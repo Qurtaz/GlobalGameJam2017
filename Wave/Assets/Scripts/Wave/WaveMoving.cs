@@ -9,7 +9,7 @@ public class WaveMoving : MonoBehaviour
 
     public GameObject[] States;
 
-    public int speed = 10;
+    
     public Vector3 Direct = new Vector3(0, 0, 1);
 
     
@@ -36,11 +36,11 @@ public class WaveMoving : MonoBehaviour
 
         if (rewind == true)
         {
-            this.transform.Translate(Direct * -ThisWave.Speed / 10000);
+            this.transform.Translate(Time.deltaTime *Direct * -ThisWave.Speed / 100);
         }
         else
         {
-            this.transform.Translate(Direct * ThisWave.Speed / 10000);
+            this.transform.Translate(Time.deltaTime * Direct * ThisWave.Speed / 100);
         }
     }
 

@@ -21,7 +21,7 @@ public class Generator : MonoBehaviour {
 
     void Awake()
     {
-        //Randomize();
+        Randomize();
         Generate();
     }
 
@@ -65,7 +65,7 @@ public class Generator : MonoBehaviour {
     {
 
         RoadInstantiate = new GameObject[width,length];
-        
+        int CountOfHouse = 0;
     
         for(int i = 0; i < length; i++)
         {
@@ -113,8 +113,8 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(-1);
-                           // CountOfHouse++;
+                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
+                            CountOfHouse++;
                         }
                     }
                 }
@@ -163,40 +163,65 @@ public class Generator : MonoBehaviour {
                     else
                     if (H[0] && H[1] && !H[2] && !H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(3);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(6);
 
                     }
                     else
                     if (!H[0] && H[1] && H[2] && !H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(4);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(5);
 
                     }
                     else
                     if (!H[0] && !H[1] && H[2] && H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(5);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(4);
 
                     }
                     else
                     if (H[0] && !H[1] && !H[2] && H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(6);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(3);
 
                     }
                     else
                     if (H[0] && !H[1] && H[2] && !H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(1);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(0);
 
                     }
                     else
                     if (!H[0] && H[1] && !H[2] && H[3])
                     {
-                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(0);
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(1);
 
                     }
                     else
+                    if (H[0] && H[1] && !H[2] && H[3])
+                    {
+                    RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(10);
+
+                    }
+                else
+                    if (H[0] && H[1] && !H[2] && !H[3])
+                {
+                    RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(9);
+
+                }
+                else
+                    if (!H[0] && H[1] && H[2] && H[3])
+                {
+                    RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(8);
+
+                }
+                else
+                    if (H[0] && !H[1] && H[2] && H[3])
+                {
+                    RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(7);
+
+                }
+
+                else
                     {
                         Debug.Log("Nie znalazlem sytuacji");
                         RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(2);

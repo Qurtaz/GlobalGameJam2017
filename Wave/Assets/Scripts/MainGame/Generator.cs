@@ -123,11 +123,18 @@ public class Generator : MonoBehaviour {
             }
             
         }
+        SetRoad();
     }
 
     void SetRoad()
     {
-
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < length; j++)
+            {
+                RoadInstantiate[i, j] = null;
+            }
+        }
     }
 
     Vector3 GetPosition(int i, int j)

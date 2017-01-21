@@ -19,7 +19,7 @@ public class Generator : MonoBehaviour {
 
     public int Height = 2;
 
-    void Start()
+    void Awake()
     {
         //Randomize();
         Generate();
@@ -60,17 +60,12 @@ public class Generator : MonoBehaviour {
         
     }
     GameObject[,] RoadInstantiate;
+    public int TestCountCreatedRoad = 0;
     void Generate()
     {
 
         RoadInstantiate = new GameObject[width,length];
-        for(int i = 0; i< width; i++)
-        {
-            for(int j = 0; j < length; j++)
-            {
-                RoadInstantiate[i, j] = null;
-            }
-        }
+        
     
         for(int i = 0; i < length; i++)
         {
@@ -78,7 +73,8 @@ public class Generator : MonoBehaviour {
             {
                 for (int j = 0; j < width; j++)
                 {
-                    Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                    RoadInstantiate[j, i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                    TestCountCreatedRoad++;
                 }
                 
             }
@@ -94,7 +90,8 @@ public class Generator : MonoBehaviour {
                 {
                     if (j == 0 || j == width - 1)
                     {
-                        Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                        RoadInstantiate[j, i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                        TestCountCreatedRoad++;
                     }
                     else
                     {
@@ -102,7 +99,8 @@ public class Generator : MonoBehaviour {
                         {
                             
                             RoadInstantiate[j,i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
-                            
+                            TestCountCreatedRoad++;
+
 
 
                         }
@@ -115,7 +113,7 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(0);
+                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(-1);
                            // CountOfHouse++;
                         }
                     }
@@ -126,14 +124,106 @@ public class Generator : MonoBehaviour {
         SetRoad();
     }
 
+    //0 I
+    //1 -
+    //2 +
+    //3 (
+    //4
+    //5
+    //6
+
+    public int TestCountChangeRoad = 0;
     void SetRoad()
     {
+        bool[] H = new bool[4];
+        //  1
+        //0   2
+        //  3
+        
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < length; j++)
             {
-                RoadInstantiate[i, j] = null;
-            }
+                    if(RoadInstantiate[i,j] == null)
+                    {
+                        continue;
+                    }
+                    TestCountChangeRoad++;
+                    H[0] = HaveRoad(i - 1, j);
+                    H[1] = HaveRoad(i, j + 1);
+                    H[2] = HaveRoad(i + 1, j);
+                    H[3] = HaveRoad(i, j - 1);
+                //Debug.Log("Sytuacja: " + H[0].ToString() + H[1].ToString() + H[2].ToString() + H[3].ToString());
+                    Debug.Log(i.ToString() + " " + j);
+                    if (H[0] && H[1] && H[2] && H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(2);
+
+                    }
+                    else
+                    if (H[0] && H[1] && !H[2] && !H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(3);
+
+                    }
+                    else
+                    if (!H[0] && H[1] && H[2] && !H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(4);
+
+                    }
+                    else
+                    if (!H[0] && !H[1] && H[2] && H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(5);
+
+                    }
+                    else
+                    if (H[0] && !H[1] && !H[2] && H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(6);
+
+                    }
+                    else
+                    if (H[0] && !H[1] && H[2] && !H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(1);
+
+                    }
+                    else
+                    if (!H[0] && H[1] && !H[2] && H[3])
+                    {
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(0);
+
+                    }
+                    else
+                    {
+                        Debug.Log("Nie znalazlem sytuacji");
+                        RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(2);
+                    }
+                    
+                }
+        }
+    }
+
+    bool HaveRoad(int _width, int _length)
+    {
+        if(_width < 0 || _width >= width)
+        {
+            return false;
+        }
+        if(_length < 0 || _length >= length)
+        {
+            return false;
+        }
+
+        if(RoadInstantiate[_width,_length] == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 

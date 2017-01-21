@@ -11,7 +11,7 @@ public class NormalBuilding : Cities {
         generateMoney = 5;
         maxFortificationlevel = 3;
         maxBuildingLevel = 3;
-        builgingLevel = 2;
+        builgingLevel = 0;
         fortificationLevet = 0;
         stamina = 1;
         upgrade = false;

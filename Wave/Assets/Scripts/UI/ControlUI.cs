@@ -11,10 +11,12 @@ public class ControlUI : MonoBehaviour {
     public GameObject BuildingView;
     public Button UpdateBuilding;
     public Button UpdateFortification;
+
     public void setBuilding(GameObject Prefab)
     {
         GameObject bu = Instantiate(Prefab, cell.transform.position, cell.transform.rotation);
     }
+
     public void Menage(GameObject set)
     {
         cell = set;

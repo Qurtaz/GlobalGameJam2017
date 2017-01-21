@@ -570,6 +570,7 @@ MonoBehaviour:
   middelFloor: {fileID: 1600517588468216, guid: 33b6fd3cea1198444b30d10a70e453a8,
     type: 2}
   lastFloor: {fileID: 1725322143838516, guid: af9a92cbb9268734aa65f9854e8b2f84, type: 2}
+  building: {fileID: 0}
   allFlors: []
 --- !u!114 &1967803726
 MonoBehaviour:
@@ -688,6 +689,8 @@ MonoBehaviour:
   CountBuildingsT2: 2
   CountBuildingsT1: 4
   Height: 1
+  TestCountCreatedRoad: 0
+  TestCountChangeRoad: 0
 --- !u!114 &2044937793
 MonoBehaviour:
   m_ObjectHideFlags: 0

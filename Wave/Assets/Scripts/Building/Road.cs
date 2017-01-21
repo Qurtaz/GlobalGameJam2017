@@ -10,8 +10,9 @@ public class Road : MonoBehaviour {
     {
         for(int i = 0; i < Roads.Length; i++)
         {
-            Roads[a].SetActive(false);
+            Roads[i].SetActive(false);
         }
+        Debug.Log("Wlaczylem " + a);
         Roads[a].SetActive(true);
     }
 }

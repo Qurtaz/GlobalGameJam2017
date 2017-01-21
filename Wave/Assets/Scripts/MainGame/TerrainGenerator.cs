@@ -8,10 +8,11 @@ public class TerrainGenerator : MonoBehaviour {
     public GameObject[] Beach;
     public GameObject Water;
     public GameObject Earth;
+    public GameObject Reef;
 
     public const int width = 12;
 
-    public const int WaterLenght = 3;
+    public const int WaterLenght = 5;
     public const int LandLenght = 12;
 
     void Start () {
@@ -41,16 +42,17 @@ public class TerrainGenerator : MonoBehaviour {
     {
         int ActualPosition = 0;
         
-        PartGenerator(Water, WaterLenght, ActualPosition);
+        PartGenerator(Water, WaterLenght+2, ActualPosition);
+        PartGenerator(Reef, WaterLenght, ActualPosition);
         ActualPosition += WaterLenght;
 
         for(int i = 0; i < Beach.Length; i++)
         {
-            PartGenerator(Beach[i], 1, ActualPosition,1);
+            PartGenerator(Beach[i], 1, ActualPosition);
             ActualPosition++;
         }
 
-        PartGenerator(Land, LandLenght, ActualPosition, 1);
+        PartGenerator(Land, LandLenght, ActualPosition);
     }
 
     

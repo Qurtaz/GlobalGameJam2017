@@ -11,8 +11,8 @@ public class Wave : MonoBehaviour {
     public static int DistanceLimit = 10;
     public static float MinimalHeight = 0.5f;
 
-    public float Weight = 5;
-    public float Lenght = 1;
+    public float Weight = 1;
+    public float Lenght = 100;
 
     public int StartSpeed;
 
@@ -97,17 +97,19 @@ public class Wave : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
+
         height -= Time.deltaTime * DroppingSpeed;
         if (TimeToLerp < 1)
         {
             TimeToLerp += Time.deltaTime* ViewSpeedLerping;
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(Weight, height, Lenght), TimeToLerp);
         }
         else
         {
             
             transform.localScale = new Vector3(Weight, height, Lenght);
         }
-        transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(Weight, height, Lenght), TimeToLerp);
+        
 
     }
 

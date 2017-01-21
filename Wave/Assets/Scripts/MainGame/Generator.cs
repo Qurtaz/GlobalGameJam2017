@@ -59,16 +59,16 @@ public class Generator : MonoBehaviour {
 
         
     }
-
+    GameObject[,] RoadInstantiate;
     void Generate()
     {
-        int CountOfHouse = 0;
-        int[,] RoadInstantiate = new int[width,length];
+
+        RoadInstantiate = new GameObject[width,length];
         for(int i = 0; i< width; i++)
         {
             for(int j = 0; j < length; j++)
             {
-
+                RoadInstantiate[i, j] = null;
             }
         }
     
@@ -100,8 +100,8 @@ public class Generator : MonoBehaviour {
                     {
                         if(j == Road)
                         {
-                            GameObject tmp;
-                            tmp = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                            
+                            RoadInstantiate[j,i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
                             
 
 
@@ -115,7 +115,7 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(1);
+                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(0);
                            // CountOfHouse++;
                         }
                     }
@@ -123,6 +123,11 @@ public class Generator : MonoBehaviour {
             }
             
         }
+    }
+
+    void SetRoad()
+    {
+
     }
 
     Vector3 GetPosition(int i, int j)

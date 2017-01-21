@@ -21,7 +21,7 @@ public class Generator : MonoBehaviour {
 
     void Start()
     {
-        Randomize();
+        //Randomize();
         Generate();
     }
 
@@ -63,6 +63,15 @@ public class Generator : MonoBehaviour {
     void Generate()
     {
         int CountOfHouse = 0;
+        int[,] RoadInstantiate = new int[width,length];
+        for(int i = 0; i< width; i++)
+        {
+            for(int j = 0; j < length; j++)
+            {
+
+            }
+        }
+    
         for(int i = 0; i < length; i++)
         {
             if(i%2 == 0)
@@ -75,13 +84,13 @@ public class Generator : MonoBehaviour {
             }
             else
             {
-                int Road = Random.Range(2, width - 1);
+                int Road = Random.Range(2, width - 2);
                 int Foundation = Random.Range(1, width - 1);
                 if(Foundation == Road)
                 {
                     Foundation++;
                 }
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < width; j++) //width
                 {
                     if (j == 0 || j == width - 1)
                     {
@@ -91,7 +100,11 @@ public class Generator : MonoBehaviour {
                     {
                         if(j == Road)
                         {
-                            Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                            GameObject tmp;
+                            tmp = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                            
+
+
                         }
                         else if (Foundation == j)
                         {
@@ -99,11 +112,11 @@ public class Generator : MonoBehaviour {
                         }
                         else
                         {
-                            
+                            //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
-                            CountOfHouse++;
+                            tmp.GetComponent<NormalBuilding>().SetLevelBuilding(1);
+                           // CountOfHouse++;
                         }
                     }
                 }
@@ -121,4 +134,6 @@ public class Generator : MonoBehaviour {
     {
         return new Vector3(j + OffsetGeneratorX, Height + HeightModyfiaction, i + OffsetGeneratorZ);
     }
+
+    
 }

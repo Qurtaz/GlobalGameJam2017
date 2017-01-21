@@ -6,7 +6,7 @@ public class MenagerBuilding : MonoBehaviour {
     public GameObject groundFloor;
     public GameObject middelFloor;
     public GameObject lastFloor;
-    private Building building;
+    public Building building;
     public List<GameObject> allFlors;
     // Use this for initialization
 
@@ -14,7 +14,7 @@ public class MenagerBuilding : MonoBehaviour {
         allFlors.Clear();
     }
     void Start () {
-        building = gameObject.GetComponent<Building>();
+        
         allFlors = new List<GameObject>();
         if(building.GetLevelBuilding() == 0)
         {

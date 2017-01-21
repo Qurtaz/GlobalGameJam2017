@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NormalBuilding : Cities {
-    private MenagerBuilding data;
+    public MenagerBuilding data;
 	// Use this for initialization
 	void Start () {
         maxHP = 100;
@@ -15,7 +15,7 @@ public class NormalBuilding : Cities {
         fortificationLevet = 0;
         stamina = 1;
         upgrade = false;
-        data = GetComponent<MenagerBuilding>();
+        //data = GetComponent<MenagerBuilding>();
     }
 	
 	// Update is called once per frame

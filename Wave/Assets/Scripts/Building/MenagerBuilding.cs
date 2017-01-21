@@ -6,7 +6,8 @@ public class MenagerBuilding : MonoBehaviour {
     public GameObject groundFloor;
     public GameObject middelFloor;
     public GameObject lastFloor;
-    public Building building;
+    public GameObject flore;
+    private Building building;
     public List<GameObject> allFlors;
     // Use this for initialization
 
@@ -14,7 +15,7 @@ public class MenagerBuilding : MonoBehaviour {
         allFlors.Clear();
     }
     void Start () {
-        
+        building = gameObject.GetComponent<Building>();
         allFlors = new List<GameObject>();
         if(building.GetLevelBuilding() == 0)
         {
@@ -33,14 +34,15 @@ public class MenagerBuilding : MonoBehaviour {
                 allFlors[1].transform.parent = gameObject.transform;
             }
         }
-        
+        allFlors.Add(Instantiate(flore, gameObject.transform.position, gameObject.transform.rotation));
+        allFlors[allFlors.Count - 1].transform.parent = gameObject.transform;
         Operaction();
 	}
 	
 	// Update is called once per frame
 	public void Operaction () {
         Add();
-        while ((allFlors.Count > building.GetLevelBuilding() + 1))
+        while ((allFlors.Count > building.GetLevelBuilding() + 2))
         {
             Debug.Log("Polska");
             GameObject a = allFlors[1];
@@ -65,6 +67,10 @@ public class MenagerBuilding : MonoBehaviour {
         if(allFlors[i].transform.position.y - allFlors[i-1].transform.position.y >1)
         {
             allFlors[i].transform.position = new Vector3(allFlors[i].transform.position.x, allFlors[i].transform.position.y - 1, allFlors[i].transform.position.z);
+        }
+        if(allFlors[1] == flore)
+        {
+            allFlors[i].transform.position = new Vector3(allFlors[i - 1].transform.position.x, allFlors[i - 1].transform.position.y-1, allFlors[i - 1].transform.position.z);
         }
     }
 

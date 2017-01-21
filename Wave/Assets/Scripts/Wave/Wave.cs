@@ -32,7 +32,7 @@ public class Wave : MonoBehaviour {
     void Start()
     {
         TimeToLerp = 0;
-        Height = 3;
+        
     }
 
     int strength;
@@ -42,9 +42,13 @@ public class Wave : MonoBehaviour {
         {
             return strength;
         }
+        set
+        {
+            strength = value;
+        }
     }
 
-    float height;
+    float height = 3;
     public float Height 
     {
         get

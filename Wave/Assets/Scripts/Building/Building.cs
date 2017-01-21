@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Building : MonoBehaviour {
     public float maxHP;
-    public Cell referace;
     protected float hp;
     protected int builgingLevel;
     protected int fortificationLevet;
@@ -29,14 +28,13 @@ public abstract class Building : MonoBehaviour {
         hp = hp - stamina*z;
         if (hp <= 0)
         {
-            if (builgingLevel > 0)
+            if (builgingLevel >= 0)
             {
                 builgingLevel--;
             }
             else
             {
                 Destroy(gameObject);
-                referace.BuildState(false);
             }
         }
     }

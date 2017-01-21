@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Building : MonoBehaviour {
     public float maxHP;
+    public Cell referace;
     protected float hp;
     protected int builgingLevel;
     protected int fortificationLevet;
@@ -11,9 +12,11 @@ public abstract class Building : MonoBehaviour {
     protected int maxFortificationlevel;
     protected float cost;
     protected float stamina;
+    protected MenagerBuilding menager;
     // Use this for initialization
     void Start () {
         hp = maxHP;
+        menager = GetComponent<MenagerBuilding>();
 	}
 	
 	// Update is called once per frame
@@ -33,6 +36,7 @@ public abstract class Building : MonoBehaviour {
             else
             {
                 Destroy(gameObject);
+                referace.BuildState(false);
             }
         }
     }
@@ -55,6 +59,7 @@ public abstract class Building : MonoBehaviour {
     }
     public void UpgradeBuilding()
     {
+        menager.Operaction();
         builgingLevel++;
         hp = maxHP;
     }

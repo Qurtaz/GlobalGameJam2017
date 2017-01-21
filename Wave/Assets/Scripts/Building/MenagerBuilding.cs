@@ -12,11 +12,14 @@ public class MenagerBuilding : MonoBehaviour {
     void Start () {
         building = gameObject.GetComponent<Building>();
         allFlors = new List<GameObject>();
+        allFlors.Add(Instantiate( groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+        allFlors[0].transform.parent = gameObject.transform;
         allFlors.Add(Instantiate(lastFloor, gameObject.transform.position, gameObject.transform.rotation));
-        allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
-        for(int i =0; i <= building.GetLevelBuilding(); i++)
+        allFlors[1].transform.parent = gameObject.transform;
+        for (int i =0; i <= building.GetLevelBuilding(); i++)
         {
             allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
+            allFlors[1].transform.parent = gameObject.transform;
         }
         Operaction();
 	}
@@ -26,10 +29,11 @@ public class MenagerBuilding : MonoBehaviour {
         while ((allFlors.Count < building.GetLevelBuilding() + 2))
         {
             allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
+            allFlors[1].transform.parent = gameObject.transform;
         }
         for (int i = 0; i < allFlors.Count;i++)
         {
-            for(int z =allFlors.Count-1; z >1;z--)
+            for(int z = allFlors.Count-1; z >0;z--)
             {
                 CorectHight(z);
             }

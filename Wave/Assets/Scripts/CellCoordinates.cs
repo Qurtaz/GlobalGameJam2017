@@ -28,31 +28,23 @@ public struct CellCoordinates
         this.z = z;
     }
 
-    public int Y
-    {
-        get
-        {
-            return -X - Z;
-        }
-    }
-
     public override string ToString()
     {
         return "(" +
-            X.ToString() + ", " + Y.ToString() + ", " + Z.ToString() + ")";
+            X.ToString() + ", " + Z.ToString() + ")";
     }
 
     public string ToStringOnSeparateLines()
     {
-        return X.ToString() + "\n" + Y.ToString() + "\n" + Z.ToString();
+        return X.ToString() + "\n" + Z.ToString();
     }
 
     public static CellCoordinates FromPosition(Vector3 position)
     {
         int x = Mathf.RoundToInt(position.x);
-        int y = Mathf.RoundToInt(position.y);
+        int z = Mathf.RoundToInt(position.z);
 
-        return new CellCoordinates(x, y);
+        return new CellCoordinates(x, z);
     }
 }
 

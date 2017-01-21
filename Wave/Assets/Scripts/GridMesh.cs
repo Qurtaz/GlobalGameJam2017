@@ -58,14 +58,4 @@ public class GridMesh : MonoBehaviour
         triangles.Add(vertexIndex + 2);
     }
 
-
-
-  //  public Cell GetCell(Vector3 position)
-  //  {
-     //   position = transform.InverseTransformPoint(position);
-     //   CellCoordinates coordinates = HexCoordinates.FromPosition(position);
-      //  int index =
-     //       coordinates.X + coordinates.Z * cellCountX + coordinates.Z / 2;
-    //    return cells[index];
-  //  }
 }

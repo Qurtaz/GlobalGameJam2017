@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
-  referace: {fileID: 0}
   generateMoney: 0
   upgrade: 0
 --- !u!23 &175423035
@@ -261,7 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
-  referace: {fileID: 0}
   generateMoney: 0
   upgrade: 0
 --- !u!23 &375606874
@@ -390,27 +388,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &884028226 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1494582211656746, guid: 6bb18e008d2806a4596a549c35f046b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 182735249}
---- !u!1 &886371694 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1284665143305114, guid: 6bb18e008d2806a4596a549c35f046b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 182735249}
---- !u!1 &1220822689 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1085392649339278, guid: 6bb18e008d2806a4596a549c35f046b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 182735249}
---- !u!1 &1410732788 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1411825438077316, guid: 6bb18e008d2806a4596a549c35f046b1,
-    type: 2}
-  m_PrefabInternal: {fileID: 182735249}
---- !u!1001 &1476658613
+--- !u!1001 &631800258
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -449,36 +427,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114226269857841292, guid: 92f439bb31e7a0645977613f85f83631,
-        type: 2}
-      propertyPath: StartSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114226269857841292, guid: 92f439bb31e7a0645977613f85f83631,
-        type: 2}
-      propertyPath: SpeedDropping
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114226269857841292, guid: 92f439bb31e7a0645977613f85f83631,
-        type: 2}
-      propertyPath: WaveResist
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4471690952786552, guid: 92f439bb31e7a0645977613f85f83631, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 4147330795940670, guid: 92f439bb31e7a0645977613f85f83631, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 1206920904970236, guid: 92f439bb31e7a0645977613f85f83631, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92f439bb31e7a0645977613f85f83631, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &884028226 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1494582211656746, guid: 6bb18e008d2806a4596a549c35f046b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 182735249}
+--- !u!1 &886371694 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1284665143305114, guid: 6bb18e008d2806a4596a549c35f046b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 182735249}
+--- !u!1 &1220822689 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1085392649339278, guid: 6bb18e008d2806a4596a549c35f046b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 182735249}
+--- !u!1 &1410732788 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1411825438077316, guid: 6bb18e008d2806a4596a549c35f046b1,
+    type: 2}
+  m_PrefabInternal: {fileID: 182735249}
 --- !u!1 &1499011447
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +499,7 @@ MonoBehaviour:
   - {fileID: 1560815815}
   Water: {fileID: 884028226}
   Earth: {fileID: 1574964524}
+  Reef: {fileID: 0}
 --- !u!114 &1499011450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +565,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
-  referace: {fileID: 0}
   generateMoney: 0
   upgrade: 0
 --- !u!23 &1523211094
@@ -705,7 +676,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
-  referace: {fileID: 0}
   generateMoney: 0
   upgrade: 0
 --- !u!23 &1801084382

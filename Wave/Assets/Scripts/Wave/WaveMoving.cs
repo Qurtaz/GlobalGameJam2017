@@ -14,7 +14,7 @@ public class WaveMoving : MonoBehaviour
 
     
     public int MinimalHeightLimit = 2;
-    public static bool rewind;
+    public bool rewind;
     Vector2 StartPosition;
 
     void Start()

@@ -117,7 +117,7 @@ public class Wave : MonoBehaviour {
 
     public void GeneratObstacel(int builgingLevel) //uderzyl w budynek
     {
-        if (WaveMoving.rewind)
+        if (GetComponent<WaveMoving>().rewind)
         {
             return;
         }
@@ -128,7 +128,7 @@ public class Wave : MonoBehaviour {
 
     public void GeneratObstacel(int builgingLevel, int addisionForse) //uderzyl w przeszkode
     {
-        if (WaveMoving.rewind)
+        if (GetComponent<WaveMoving>().rewind)
         {
             return;
         }

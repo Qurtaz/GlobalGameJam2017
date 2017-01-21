@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +17,7 @@ public class ControlUI : MonoBehaviour {
     }
     public void Menage(GameObject set)
     {
-        if(cell.GetComponent<Cell>().doesHaveBuilding)
+        if(cell.GetComponent<Building>() !=  null)
         {
             UpdateViwe.SetActive(true);
             UpdateData();
@@ -30,7 +30,7 @@ public class ControlUI : MonoBehaviour {
     }
     public void UpdateData()
     {
-        if (cell.GetComponent<Cell>().currentObject.GetComponent<Building>().CanUpgradeBuinding() == false)
+        if (cell.GetComponent<Building>().CanUpgradeBuinding() == false)
         {
             UpdateBuilding.interactable = false;
             UpdateBuilding.gameObject.GetComponentInChildren<Text>().text = "MAX";
@@ -40,7 +40,7 @@ public class ControlUI : MonoBehaviour {
             UpdateBuilding.interactable = true;
             UpdateBuilding.gameObject.GetComponentInChildren<Text>().text = "Upgrade Building";
         }
-        if (cell.GetComponent<Cell>().currentObject.GetComponent<Building>().CanUpgradeFortifiactiong() == false)
+        if (cell.GetComponent<Building>().CanUpgradeFortifiactiong() == false)
         {
             UpdateFortification.interactable = false;
             UpdateFortification.gameObject.GetComponentInChildren<Text>().text = "MAX";

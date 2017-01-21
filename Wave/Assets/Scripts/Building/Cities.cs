@@ -24,10 +24,14 @@ public abstract class Cities : Building {
     }
     public void AddMoney()
     {
-        Player.money += generateMoney;
+        Player.money += generateMoney + generateMoney*builgingLevel;
     }
-    public override bool CanUpgrade()
+    public override bool CanUpgradeBuinding()
     {
-        return upgrade;
+        if (upgrade)
+            return base.CanUpgradeBuinding();
+        else
+            return upgrade;
     }
+    
 }

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class ControlUI : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject cell;
+
+    public void setBuilding(GameObject Prefab)
+    {
+        Cell set = cell.GetComponent<Cell>();
+        GameObject bu = Instantiate(Prefab, cell.transform.position, cell.transform.rotation);
+        set.
+    }
 }

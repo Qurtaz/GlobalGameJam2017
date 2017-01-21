@@ -14,7 +14,8 @@ public class WaveCollider : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Buldings")
+        Debug.Log("Kolizja");
+        if(other.tag == "Bulding")
         {
             other.gameObject.SendMessage("MinuesHP", ThisWave.Strength + ThisWave.Height);
             other.gameObject.SendMessage("Work", transform.parent.gameObject);

@@ -7,12 +7,14 @@ public class WaveMoving : MonoBehaviour
 
     Wave ThisWave;
 
+    public GameObject[] States;
+
     public int speed = 10;
     public Vector3 Direct = new Vector3(0, 0, 1);
 
     
     public int MinimalHeightLimit = 2;
-    bool rewind;
+    public static bool rewind;
     Vector2 StartPosition;
 
     void Start()
@@ -29,7 +31,7 @@ public class WaveMoving : MonoBehaviour
         
         if (Wave.DistanceLimit < Vector2.Distance(StartPosition, new Vector2(this.transform.position.x, this.transform.position.z)) && rewind == false)
         {
-            rewind = true;
+            RewindWave();
         }
 
         if (rewind == true)
@@ -44,6 +46,8 @@ public class WaveMoving : MonoBehaviour
 
     public void RewindWave()
     {
+        States[0].SetActive(false);
+        States[1].SetActive(true);
         rewind = true;
     }
 }

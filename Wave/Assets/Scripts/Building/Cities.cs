@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Cities : Building {
     public float generateMoney;
-
+    public bool upgrade;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,6 +24,14 @@ public abstract class Cities : Building {
     }
     public void AddMoney()
     {
-        Player.money += generateMoney;
+        Player.money += generateMoney + generateMoney*builgingLevel;
     }
+    public override bool CanUpgradeBuinding()
+    {
+        if (upgrade)
+            return base.CanUpgradeBuinding();
+        else
+            return upgrade;
+    }
+    
 }

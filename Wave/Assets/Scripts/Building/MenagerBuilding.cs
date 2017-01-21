@@ -35,13 +35,14 @@ public class MenagerBuilding : MonoBehaviour {
             }
         }
         allFlors.Add(Instantiate(flore, gameObject.transform.position, gameObject.transform.rotation));
+        allFlors[allFlors.Count - 1].transform.parent = gameObject.transform;
         Operaction();
 	}
 	
 	// Update is called once per frame
 	public void Operaction () {
         Add();
-        while ((allFlors.Count > building.GetLevelBuilding() + 1))
+        while ((allFlors.Count > building.GetLevelBuilding() + 2))
         {
             Debug.Log("Polska");
             GameObject a = allFlors[1];
@@ -66,6 +67,10 @@ public class MenagerBuilding : MonoBehaviour {
         if(allFlors[i].transform.position.y - allFlors[i-1].transform.position.y >1)
         {
             allFlors[i].transform.position = new Vector3(allFlors[i].transform.position.x, allFlors[i].transform.position.y - 1, allFlors[i].transform.position.z);
+        }
+        if(allFlors[1] == flore)
+        {
+            allFlors[i].transform.position = new Vector3(allFlors[i - 1].transform.position.x, allFlors[i - 1].transform.position.y-1, allFlors[i - 1].transform.position.z);
         }
     }
 

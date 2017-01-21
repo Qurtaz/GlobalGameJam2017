@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027851774699758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.247097, y: -0.5161221, z: 1.2713804}
+  m_LocalPosition: {x: -0.39138913, y: -4.1878586, z: 6.2455378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,5 @@ MonoBehaviour:
   middelFloor: {fileID: 1138292993590528, guid: 88db11fcdfa20e1478a2dfa9f3c67d25,
     type: 2}
   lastFloor: {fileID: 1193055365400190, guid: da48836ea63e65a459e29d7b78856405, type: 2}
-  allFlors:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  flore: {fileID: 1917988399075802, guid: 91eb45865a704a64d92d5de89a55da85, type: 2}
+  allFlors: []

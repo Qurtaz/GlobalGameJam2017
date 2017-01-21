@@ -1,14 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class MasterController : MonoBehaviour
 {
     public GameObject cameraSupport;
     public ControlUI control;
+
+    public GameObject Info, Building, Trap, Menu;
+
     void Update()
     {
         if (Input.GetButtonDown("Cancel") == true)
-            Application.Quit();
+        {
+            if (Menu.activeSelf == true)
+            {
+                Menu.SetActive(false);
+                PauseGame(false);
+            }
+            else
+            {
+                Menu.SetActive(true);
+                PauseGame(true);
+            }
+        }
         else if
             (Input.GetButtonDown("CamRotation") == true)
         {
@@ -38,6 +53,18 @@ public class MasterController : MonoBehaviour
         if (Physics.Raycast(inputRay, out hit))
         {
             control.Menage(hit.transform.gameObject);
+        }
+    }
+
+    void PauseGame(bool state)
+    {
+        if (state == true)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
         }
     }
 }

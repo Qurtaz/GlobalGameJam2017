@@ -19,7 +19,7 @@ public class ControlUI : MonoBehaviour {
         bu.GetComponent<Building>().referace = set;
         set.BuildState(true);
     }
-    public void Menage()
+    public void Menage(GameObject set)
     {
         if(cell.GetComponent<Cell>().doesHaveBuilding)
         {

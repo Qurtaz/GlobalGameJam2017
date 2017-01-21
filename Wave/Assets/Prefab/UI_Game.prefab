@@ -2469,8 +2469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9696f3005c1cf6043bccdf13e28f273e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  building: {fileID: 0}
-  trap: {fileID: 0}
+  building: {fileID: 1028982497167856}
+  trap: {fileID: 1627979952252790}
 --- !u!114 &114774453357018310
 MonoBehaviour:
   m_ObjectHideFlags: 1

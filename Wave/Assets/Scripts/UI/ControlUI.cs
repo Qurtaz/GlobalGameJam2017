@@ -17,6 +17,7 @@ public class ControlUI : MonoBehaviour {
     }
     public void Menage(GameObject set)
     {
+        cell = set;
         if(cell.GetComponent<Building>() !=  null)
         {
             UpdateViwe.SetActive(true);
@@ -26,7 +27,7 @@ public class ControlUI : MonoBehaviour {
         {
             BuildingView.SetActive(true);
         }
-        Viwe.GetComponent<RectTransform>().anchoredPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        Viwe.GetComponent<RectTransform>().position = new Vector3( cell.transform.position.x, cell.transform.position.y+3,cell.transform.position.z);
     }
     public void UpdateData()
     {

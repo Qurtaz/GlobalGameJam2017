@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -538,6 +538,11 @@ Prefab:
       objectReference: {fileID: 1314107273}
     - target: {fileID: 114497166508655808, guid: 82b0b2e677c3e5147afce09fda5ceee8,
         type: 2}
+      propertyPath: BuildingView
+      value: 
+      objectReference: {fileID: 186085325}
+    - target: {fileID: 114497166508655808, guid: 82b0b2e677c3e5147afce09fda5ceee8,
+        type: 2}
       propertyPath: UpdateBuilding
       value: 
       objectReference: {fileID: 1372823664}
@@ -716,6 +721,12 @@ Transform:
   m_Father: {fileID: 887028531}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731607527 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114497166508655808, guid: 82b0b2e677c3e5147afce09fda5ceee8,
+    type: 2}
+  m_PrefabInternal: {fileID: 225215135}
+  m_Script: {fileID: 11500000, guid: 90f79a65cbcf4bc4f8eb00b7f1b20ef2, type: 3}
 --- !u!1 &797135185
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,15 +976,15 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1104123990}
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalRotation: {x: 0.272532, y: -0.4030582, z: 0.12708373, w: 0.86436117}
   m_LocalPosition: {x: 0, y: 0, z: 204}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 1314107277}
   - {fileID: 186085326}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: -50, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -106, y: -179}
@@ -1094,7 +1105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c52bd6b3a6a5ce46a72964dc278fd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellGrid: {fileID: 0}
+  cameraSupport: {fileID: 0}
+  control: {fileID: 731607527}
 --- !u!1 &1314107273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 0
-  referace: {fileID: 0}
   generateMoney: 0
   upgrade: 0
 --- !u!23 &1967803727

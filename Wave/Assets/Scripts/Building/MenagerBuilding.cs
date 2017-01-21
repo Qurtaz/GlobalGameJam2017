@@ -9,27 +9,59 @@ public class MenagerBuilding : MonoBehaviour {
     private Building building;
     public List<GameObject> allFlors;
     // Use this for initialization
+
+    void Awake() {
+        allFlors.Clear();
+    }
     void Start () {
         building = gameObject.GetComponent<Building>();
         allFlors = new List<GameObject>();
-        allFlors.Add(Instantiate( groundFloor, gameObject.transform.position, gameObject.transform.rotation));
-        allFlors[0].transform.parent = gameObject.transform;
-        allFlors.Add(Instantiate(lastFloor, gameObject.transform.position, gameObject.transform.rotation));
-        allFlors[1].transform.parent = gameObject.transform;
-        for (int i =0; i <= building.GetLevelBuilding(); i++)
+        if(building.GetLevelBuilding() == 0)
         {
-            allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
-            allFlors[1].transform.parent = gameObject.transform;
+            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+            allFlors[0].transform.parent = gameObject.transform;
         }
+        else
+        {
+            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+            allFlors[0].transform.parent = gameObject.transform;
+            allFlors.Add(Instantiate(lastFloor, gameObject.transform.position, gameObject.transform.rotation));
+            allFlors[1].transform.parent = gameObject.transform;
+            for (int i = 2; i <= building.GetLevelBuilding(); i++)
+            {
+                allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
+                allFlors[1].transform.parent = gameObject.transform;
+            }
+        }
+        
         Operaction();
 	}
 	
 	// Update is called once per frame
 	public void Operaction () {
-        while ((allFlors.Count < building.GetLevelBuilding() + 2))
+        while ((allFlors.Count < building.GetLevelBuilding() + 1))
         {
-            allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
-            allFlors[1].transform.parent = gameObject.transform;
+            if(allFlors.Count <2 )
+            {
+                allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+                allFlors[0].transform.parent = gameObject.transform;
+                allFlors.Add(Instantiate(lastFloor, gameObject.transform.position, gameObject.transform.rotation));
+                allFlors[1].transform.parent = gameObject.transform;
+                for (int i = 1; i <= building.GetLevelBuilding(); i++)
+                {
+                    allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
+                    allFlors[1].transform.parent = gameObject.transform;
+                }
+            }
+            else
+            {
+                allFlors.Insert(1, (Instantiate(middelFloor, gameObject.transform.position, gameObject.transform.rotation)));
+                allFlors[1].transform.parent = gameObject.transform;
+            }   
+        }
+        while ((allFlors.Count > building.GetLevelBuilding() + 1))
+        {
+            allFlors.RemoveAt(1);
         }
         for (int i = 0; i < allFlors.Count;i++)
         {

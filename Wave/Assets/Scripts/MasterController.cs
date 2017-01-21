@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public class MasterController : MonoBehaviour
 {
     public GameObject cameraSupport;
-
+    public ControlUI control;
     void Update()
     {
         if (Input.GetButtonDown("Cancel") == true)
@@ -37,7 +37,7 @@ public class MasterController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            //(hit.transform.gameObject)
+            control.Menage(hit.transform.gameObject);
         }
     }
 }

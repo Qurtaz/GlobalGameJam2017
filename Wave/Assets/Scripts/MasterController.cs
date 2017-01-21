@@ -5,6 +5,7 @@ public class MasterController : MonoBehaviour
 {
 
     public CellGrid cellGrid;
+    public ControlUI control;
     Cell previousCell;
 
     void Update()
@@ -34,7 +35,7 @@ public class MasterController : MonoBehaviour
         if (cell)
         {
            Debug.Log(cell.doesHaveBuilding);
-            //co ma się odpalać do zmiany
+            control.Menage(cell.gameObject);
         }
     }
 }

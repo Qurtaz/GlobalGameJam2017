@@ -16,6 +16,7 @@ public class ControlUI : MonoBehaviour {
         Cell set = cell.GetComponent<Cell>();
         GameObject bu = Instantiate(Prefab, cell.transform.position, cell.transform.rotation);
         set.currentObject = bu;
+        bu.GetComponent<Building>().referace = set;
         set.BuildState(true);
     }
     public void Menage()

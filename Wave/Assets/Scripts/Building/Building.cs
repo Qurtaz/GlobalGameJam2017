@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Building : MonoBehaviour {
     public float maxHP;
+    public Cell referace;
     protected float hp;
     protected int builgingLevel;
     protected int fortificationLevet;
@@ -33,6 +34,7 @@ public abstract class Building : MonoBehaviour {
             else
             {
                 Destroy(gameObject);
+                referace.BuildState(false);
             }
         }
     }

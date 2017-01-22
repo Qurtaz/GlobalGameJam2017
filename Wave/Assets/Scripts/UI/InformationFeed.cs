@@ -15,7 +15,7 @@ public class InformationFeed : MonoBehaviour {
         isBuildUpon = false;
     }
 
-    public void feedInfo(float life, float maxLife, float resistance, float income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild, bool canDestroy)
+    public void feedInfo(float life, float maxLife, float resistance, float income, string info, Image image, bool canUpgrade, bool canReinforce, bool canDestroy)
     {
         LifeText.GetComponent<Text>().text = "Life: " + life.ToString() + "/" + maxLife.ToString();
         ResistanceText.GetComponent<Text>().text = "Resistance: " + (resistance*100).ToString() + "%";

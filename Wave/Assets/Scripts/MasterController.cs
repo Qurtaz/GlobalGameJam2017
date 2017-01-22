@@ -83,10 +83,9 @@ public class MasterController : MonoBehaviour
             if (hit.transform.tag == "Bulding")
             {
                 Info.SetActive(true);
-                resource.GetComponent<Resources>().ChangeIncome(100,50);
+                //resource.GetComponent<Resources>().ChangeIncome(100,50);
                 Building b = hit.transform.gameObject.GetComponent<Building>();
-                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.GetStatima(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true, true);
-                //control.Menage(hit.transform.gameObject);
+                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.GetStatima(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true);
             }
             else
             {

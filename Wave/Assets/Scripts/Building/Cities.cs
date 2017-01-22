@@ -21,14 +21,7 @@ public abstract class Cities : Building {
         base.UpgradeBuilding();
         maxPeople += 15;
     }
-    public override void Work(GameObject Vawe)
-    {
-        Wave z = Vawe.GetComponent<Wave>();
-        if (z != null)
-        {
-            z.GeneratObstacel(builgingLevel);
-        }
-    }
+    
     public void AddMoney()
     {
         Player.money += generateMoney + generateMoney*builgingLevel;

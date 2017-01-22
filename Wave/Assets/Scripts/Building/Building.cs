@@ -62,7 +62,7 @@ public abstract class Building : MonoBehaviour {
     }
     public virtual void  Work(GameObject Vawe)
     {
-
+        Vawe.GetComponent<Wave>().GeneratObstacel(builgingLevel);
     }
     public int GetLevelBuilding()
     {

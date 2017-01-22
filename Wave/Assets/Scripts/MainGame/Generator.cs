@@ -117,7 +117,7 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            Houses[CountOfHouse] = tmp;
+                            //Houses[CountOfHouse] = tmp;
                             tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
                             Instantiate(Ghost, GetPosition(i, j), transform.rotation);
                             CountOfHouse++;

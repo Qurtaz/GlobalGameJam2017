@@ -8,11 +8,11 @@ public class InformationFeed : MonoBehaviour {
     public GameObject LifeText, ResistanceText, IncomeText, InfoText,
                       UpgradeButton, ReinforceButton, BuildButton, DestroyButton; 
     public Image MiniatureImage;
-    public bool isStructure;
+    public bool isBuildUpon;
 
     void Awake()
     {
-        isStructure = false;
+        isBuildUpon = false;
     }
 
     void feedInfo(int life, int resistance, int income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild)

@@ -205,6 +205,7 @@ MonoBehaviour:
   materialList:
   - {fileID: 2100000, guid: 7257a7147add652419e64311cc40d4ea, type: 2}
   - {fileID: 2100000, guid: 88887da2442ae83408e37bad30eaa5a8, type: 2}
+  - {fileID: 2100000, guid: b3adf097a3edfda4f8b75e722117f512, type: 2}
 --- !u!114 &114894074268258384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,3 +224,4 @@ MonoBehaviour:
   currentPeople: 0
   people: 0
   data: {fileID: 114665078098117436}
+  ActualLevel: 0

@@ -15,6 +15,9 @@ public abstract class Building : MonoBehaviour {
     protected MenagerBuilding menager;
     protected string description;
     protected Image image;
+
+    public GameObject HiddenField;
+
     // Use this for initialization
     void Start () {
         hp = maxHP;

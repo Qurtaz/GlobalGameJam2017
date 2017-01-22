@@ -14,7 +14,10 @@ public class Mole : Obstacel {
         fortificationLevet = 0;
         stamina = 0.4f;
         addisionForse = 50;
+        
     }
+
+    
 	
 	// Update is called once per frame
 	void Update () {

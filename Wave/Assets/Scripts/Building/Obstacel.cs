@@ -14,6 +14,7 @@ public abstract class Obstacel : Building {
 		
 	}
 
+    
     public override void Work(GameObject Vawe)
     {
         Wave z = Vawe.GetComponent<Wave>();

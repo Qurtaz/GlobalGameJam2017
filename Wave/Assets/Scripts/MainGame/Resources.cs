@@ -3,24 +3,33 @@ using UnityEngine.UI;
 
 public class Resources : MonoBehaviour {
 
-    static int Money, Health, Income;
-    public GameObject MoneyText, HealthText, IncomeText;
-    
+    public static int Money, Health, Income;
+    public GameObject nsMoneyText, nsHealthText, nsIncomeText;
+    public static GameObject MoneyText, HealthText, IncomeText;
 
-    public void ChangeMoney(int change)
+    void Start()
+    {
+        MoneyText = nsMoneyText;
+        HealthText = nsHealthText;
+        IncomeText = nsIncomeText;
+        ChangeMoney(3000);
+        CalculateHealth();
+    }
+
+    public static void ChangeMoney(int change)
     {
         Money += change;
         MoneyText.GetComponent<Text>().text = "Money: " + Money.ToString();
     }
 
-    public void ChangeHealth(float people, float maxPeople)
+    public static void ChangeHealth(float people, float maxPeople)
     {
         float ratio = (people / maxPeople) * 100;
         Health = Mathf.RoundToInt(ratio);
         HealthText.GetComponent<Text>().text = "Health: " + Health.ToString() + "%";
     }
 
-    public void ChangeIncome(float people, float income)
+    public static void ChangeIncome(float people, float income)
     {
         Income = Mathf.RoundToInt((people * NormalBuilding.incomeWeight) * income);
 
@@ -36,10 +45,11 @@ public class Resources : MonoBehaviour {
             if (house != null)
             {
                 NormalBuilding normBuild = house.GetComponent<NormalBuilding>();
-                maxCurrentPeople +=normBuild.maxPeople;
+                maxCurrentPeople += normBuild.maxPeople;
                 allCurrentPeople += normBuild.currentPeople;
             }
         }
+        Debug.Log("HP");
         ChangeHealth(allCurrentPeople,maxCurrentPeople);
     }
 }

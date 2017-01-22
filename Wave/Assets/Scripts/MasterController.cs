@@ -18,6 +18,8 @@ public class MasterController : MonoBehaviour
     public int typeOfBuilding;
     public int buildingCost;
 
+    public GameObject Show;
+
     void Awake()
     {
         swivel = transform.GetChild(0);
@@ -103,17 +105,29 @@ public class MasterController : MonoBehaviour
             Debug.Log(tagToBuild + " " + hit.transform.tag);
             if (tagToBuild != string.Empty)
             {
+                 
+
                  if (hit.transform.tag != tagToBuild)
                  {
-                     toBuild = null;
+                        Show.GetComponent<ShowPlace>().SwitchOffAll();
+                        toBuild = null;
                      typeOfBuilding = 0;
                      buildingCost = 0;
                      return;
                  }
                 else
                 {
-                    Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
-                    Debug.Log("Working");
+                    if(Resources.Money >= buildingCost)
+                    {
+                        Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
+                        Resources.ChangeMoney(-buildingCost);
+                    }
+
+                    Show.GetComponent<ShowPlace>().SwitchOffAll();
+                    toBuild = null;
+                    typeOfBuilding = 0;
+                    buildingCost = 0;
+                    return;
                 }
             }
 

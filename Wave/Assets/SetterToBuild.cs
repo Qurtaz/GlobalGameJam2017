@@ -10,8 +10,9 @@ public GameObject[] prefabs;
     int CostToSend;
 
 public GameObject rayObject;
+    public GameObject Show;
 
-public void ToSetIndexPrefab(int a)
+    public void ToSetIndexPrefab(int a)
     {
         toSend = prefabs[a];
     }
@@ -34,9 +35,11 @@ public void Sending()
     IEnumerator Delay()
     {
         yield return new WaitForEndOfFrame();
+        Show.GetComponent<ShowPlace>().SwitchOffAll();
         rayObject.GetComponent<MasterController>().typeOfBuilding = TypeToSend;
         rayObject.GetComponent<MasterController>().toBuild = toSend;
         rayObject.GetComponent<MasterController>().buildingCost = CostToSend;
+        Show.GetComponent<ShowPlace>().SetOn(TypeToSend);
     }
 
 

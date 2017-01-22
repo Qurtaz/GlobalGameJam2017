@@ -15,6 +15,8 @@ public class Generator : MonoBehaviour {
     public GameObject PrefabRoad;
     public GameObject PrefabBuilding;
     public GameObject PrefabFoundation;
+    public GameObject LandT;
+    public GameObject BulidT;
     public GameObject Ghost;
 
     public int CountBuildingsT2 = 2;
@@ -78,6 +80,7 @@ public class Generator : MonoBehaviour {
                 for (int j = 0; j < width; j++)
                 {
                     RoadInstantiate[j, i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                    Instantiate(LandT, GetPosition(i, j) + new Vector3(0,0,0), transform.rotation);
                     TestCountCreatedRoad++;
                 }
                 
@@ -95,6 +98,7 @@ public class Generator : MonoBehaviour {
                     if (j == 0 || j == width - 1)
                     {
                         RoadInstantiate[j, i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                        Instantiate(LandT, GetPosition(i, j) + new Vector3(0, 0, 0), transform.rotation);
                         TestCountCreatedRoad++;
                     }
                     else
@@ -103,6 +107,7 @@ public class Generator : MonoBehaviour {
                         {
                             
                             RoadInstantiate[j,i] = Instantiate(PrefabRoad, GetPosition(i, j), transform.rotation);
+                            Instantiate(LandT, GetPosition(i, j) + new Vector3(0, 0, 0), transform.rotation);
                             TestCountCreatedRoad++;
 
 
@@ -111,6 +116,7 @@ public class Generator : MonoBehaviour {
                         else if (Foundation == j)
                         {
                             Instantiate(PrefabFoundation, GetPosition(i, j), transform.rotation);
+                            Instantiate(BulidT, GetPosition(i, j), transform.rotation);
                         }
                         else
                         {

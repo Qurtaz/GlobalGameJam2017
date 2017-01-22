@@ -7,7 +7,11 @@ public class TerrainGenerator : MonoBehaviour {
     public GameObject Land;
     public GameObject[] Beach;
     public GameObject Water;
-    public GameObject Earth;
+
+    public GameObject WaterT;
+    public GameObject BeachT;
+    
+
     public GameObject Reef;
 
     public const int width = 12;
@@ -15,28 +19,27 @@ public class TerrainGenerator : MonoBehaviour {
     public const int WaterLenght = 5;
     public const int LandLenght = 12;
 
+    public int FieldsWaterLength = 3;
+
     void Start () {
         Generate();
 	}
 
-    void PartGenerator(GameObject What, int Length, int StartPosition, int height = 0)
+    void PartGenerator(GameObject What,  int Length, int StartPosition, int height = 0)
     {
         for (int j = 0; j < Length; j++)
         {
             for (int i = 0; i < width; i++)
             {
-                Instantiate(What, new Vector3(i, height, j+StartPosition), transform.rotation);
-                if(height > 0)
-                {
-                    for(int k = height - 1; k >= 0; k--)
-                    {
-                        Instantiate(Earth, new Vector3(i, k, j + StartPosition), transform.rotation);
-                    }
-                }
+                Instantiate(What, new Vector3(i, height, j+StartPosition), transform.rotation); 
             }
         }
 
     }
+
+    
+
+
 
     void Generate()
     {
@@ -44,16 +47,26 @@ public class TerrainGenerator : MonoBehaviour {
         
         PartGenerator(Water, WaterLenght+2, ActualPosition);
         PartGenerator(Reef, WaterLenght, ActualPosition);
+        PartGenerator(WaterT, FieldsWaterLength, ActualPosition + WaterLenght - FieldsWaterLength, 1);
         ActualPosition += WaterLenght;
 
         for(int i = 0; i < Beach.Length; i++)
         {
             PartGenerator(Beach[i], 1, ActualPosition);
+            if(i != 0)
+            {
+                PartGenerator(BeachT, 1, ActualPosition,1);
+            }
             ActualPosition++;
         }
 
         PartGenerator(Land, LandLenght, ActualPosition);
+        
+
+
     }
+
+    
 
     
 }

@@ -55,7 +55,7 @@ public abstract class Building : MonoBehaviour {
         stamina -= z;
         fortificationLevet++;
     }
-    public void UpgradeBuilding()
+    virtual public void UpgradeBuilding()
     {
         
         builgingLevel++;
@@ -76,5 +76,14 @@ public abstract class Building : MonoBehaviour {
             return true;
         else
             return false;
+    }
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+
+    public virtual float Income()
+    {
+        return -cost;
     }
 }

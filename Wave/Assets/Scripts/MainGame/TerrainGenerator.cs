@@ -25,7 +25,7 @@ public class TerrainGenerator : MonoBehaviour {
         Generate();
 	}
 
-    void PartGenerator(GameObject What,  int Length, int StartPosition, int height = 0)
+    void PartGenerator(GameObject What,  int Length, int StartPosition, float height = 0)
     {
         for (int j = 0; j < Length; j++)
         {
@@ -47,7 +47,7 @@ public class TerrainGenerator : MonoBehaviour {
         
         PartGenerator(Water, WaterLenght+2, ActualPosition);
         PartGenerator(Reef, WaterLenght, ActualPosition);
-        PartGenerator(WaterT, FieldsWaterLength, ActualPosition + WaterLenght - FieldsWaterLength, 1);
+        PartGenerator(WaterT, FieldsWaterLength, ActualPosition + WaterLenght - FieldsWaterLength,0.5f);
         ActualPosition += WaterLenght;
 
         for(int i = 0; i < Beach.Length; i++)

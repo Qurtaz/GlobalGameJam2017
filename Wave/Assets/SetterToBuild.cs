@@ -28,6 +28,12 @@ public void ToSetCost(int a)
 
 public void Sending()
     {
+        StartCoroutine("Delay");
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForEndOfFrame();
         rayObject.GetComponent<MasterController>().typeOfBuilding = TypeToSend;
         rayObject.GetComponent<MasterController>().toBuild = toSend;
         rayObject.GetComponent<MasterController>().buildingCost = CostToSend;

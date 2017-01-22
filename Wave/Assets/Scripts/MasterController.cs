@@ -100,7 +100,7 @@ public class MasterController : MonoBehaviour
                 default: tagToBuild = string.Empty;
                     break;
             }
-
+            Debug.Log(tagToBuild + " " + hit.transform.tag);
             if (tagToBuild != string.Empty)
             {
                  if (hit.transform.tag != tagToBuild)
@@ -110,6 +110,11 @@ public class MasterController : MonoBehaviour
                      buildingCost = 0;
                      return;
                  }
+                else
+                {
+                    Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
+                    Debug.Log("Working");
+                }
             }
 
             if (hit.transform.tag == "Bulding")

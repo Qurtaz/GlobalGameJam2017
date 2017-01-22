@@ -47,7 +47,7 @@ public abstract class Building : MonoBehaviour {
     }
     public void MinuesHP(float z)
     {
-        hp = hp - stamina*z;
+        hp = hp - z;
         if (hp <= 0)
         {
             if (builgingLevel >= 0)

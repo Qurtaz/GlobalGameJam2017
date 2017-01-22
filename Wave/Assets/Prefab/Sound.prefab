@@ -745,6 +745,11 @@ MonoBehaviour:
   destroying: {fileID: 82321293205551676}
   wave: {fileID: 82594876933276324}
   money: {fileID: 82155323031021288}
+  alter: {fileID: 82755206781138822}
+  musicSlider: {fileID: 0}
+  musicToggler: {fileID: 0}
+  SFXSlider: {fileID: 0}
+  SFXToggler: {fileID: 0}
   volume: 0
   mute: 0
   volumeSFX: 0

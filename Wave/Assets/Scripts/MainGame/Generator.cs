@@ -28,7 +28,6 @@ public class Generator : MonoBehaviour {
     {
         Randomize();
         Generate();
-        Houses = new GameObject[(width - 4) * length / 2];
     }
 
     int[] UpgradesBulid;
@@ -69,6 +68,7 @@ public class Generator : MonoBehaviour {
     public int TestCountCreatedRoad = 0;
     void Generate()
     {
+        Houses = new GameObject[(width - 4) * length / 2];
 
         RoadInstantiate = new GameObject[width,length];
         int CountOfHouse = 0;
@@ -123,7 +123,7 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
-                            //Houses[CountOfHouse] = tmp;
+                            Houses[CountOfHouse] = tmp;
                             tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
                             Instantiate(Ghost, GetPosition(i, j), transform.rotation);
                             CountOfHouse++;

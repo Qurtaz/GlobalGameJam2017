@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sounds : MonoBehaviour {
 
@@ -10,6 +11,12 @@ public class Sounds : MonoBehaviour {
     public AudioSource wave;
     public AudioSource money;
     public AudioSource alter;
+
+    public Slider musicSlider;
+    public Toggle musicToggler;
+
+    public Slider SFXSlider;
+    public Toggle SFXToggler;
 
     //Muzyka
     public float volume;
@@ -29,23 +36,34 @@ public class Sounds : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    public void saveMusic()
+    {
+        volume = musicSlider.value;
+        mute = !musicToggler.isOn;
+        SendVolumeMusic();
+    }
+    public void saveSFX()
+    {
+        volumeSFX = SFXSlider.value;
+        muteSFX = !SFXToggler.isOn;
+        SendVolumeSFX();
+    }
     public void SendVolumeMusic()
     {
-        music.volume = music.volume * (volume / 100);
+        music.volume = volume * (volume / 100);
         music.mute = mute;
     }
     public void SendVolumeSFX()
     {
-        music.volume = music.volume * (volume / 100);
-        music.mute = mute;
-        building.volume = music.volume * (volume / 100);
-        building.mute = mute;
-        destroying.volume = music.volume * (volume / 100);
-        destroying.mute = mute;
-        wave.volume = music.volume * (volume / 100);
-        wave.mute = mute;
-        money.volume = music.volume * (volume / 100);
+        alter.volume = volumeSFX * (volume / 100);
+        alter.mute = muteSFX;
+        building.volume = volumeSFX * (volume / 100);
+        building.mute = muteSFX;
+        destroying.volume = volumeSFX * (volume / 100);
+        destroying.mute = muteSFX;
+        wave.volume = volumeSFX * (volume / 100);
+        wave.mute = muteSFX;
+        money.volume = volume * (volume / 100);
         money.mute = mute;
     }
     public void PlayBuilding()

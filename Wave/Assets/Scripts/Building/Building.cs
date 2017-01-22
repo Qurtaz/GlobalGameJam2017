@@ -64,10 +64,6 @@ public abstract class Building : MonoBehaviour {
     {
 
     }
-    public float GetHP()
-    {
-        return hp;
-    }
     public int GetLevelBuilding()
     {
         return builgingLevel;

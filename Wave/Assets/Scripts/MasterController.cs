@@ -85,7 +85,7 @@ public class MasterController : MonoBehaviour
                 Info.SetActive(true);
                 resource.GetComponent<Resources>().ChangeIncome(100,50);
                 Building b = hit.transform.gameObject.GetComponent<Building>();
-                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(),b.GetMaxHP(), b.GetStatima(),b.Income(), b.GetDesriptiontrue,b.GetImage(),b.CanUpgradeBuinding(),b.CanUpgradeFortifiactiong(),true)
+                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.GetStatima(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true);
                 //control.Menage(hit.transform.gameObject);
             }
             else

@@ -8,17 +8,17 @@ public class InformationFeed : MonoBehaviour {
     public GameObject LifeText, ResistanceText, IncomeText, InfoText,
                       UpgradeButton, ReinforceButton, BuildButton, DestroyButton; 
     public Image MiniatureImage;
-    public bool isStructure;
+    public bool isBuildUpon;
 
     void Awake()
     {
-        isStructure = false;
+        isBuildUpon = false;
     }
 
-    void feedInfo(int life, int resistance, int income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild)
+    public void feedInfo(float life, float maxLife, float resistance, float income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild)
     {
-        LifeText.GetComponent<Text>().text = "Life: " + life.ToString();
-        ResistanceText.GetComponent<Text>().text = "Resistance: " + resistance.ToString();
+        LifeText.GetComponent<Text>().text = "Life: " + life.ToString() + "/" + maxLife.ToString();
+        ResistanceText.GetComponent<Text>().text = "Resistance: " + (resistance*100).ToString() + "%";
 
         if (income>=0)
             IncomeText.GetComponent<Text>().text = "Income: " + income.ToString();

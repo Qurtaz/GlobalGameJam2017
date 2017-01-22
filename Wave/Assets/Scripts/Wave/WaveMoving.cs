@@ -13,7 +13,7 @@ public class WaveMoving : MonoBehaviour
     public Vector3 Direct = new Vector3(0, 0, 1);
 
     
-    public int MinimalHeightLimit = 2;
+    
     public bool rewind;
     Vector2 StartPosition;
 

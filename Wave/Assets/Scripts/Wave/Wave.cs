@@ -125,7 +125,6 @@ public class Wave : MonoBehaviour {
         builgingLevel += 1;
         
         Height -= (builgingLevel/2) * (1f-(WaveResist+55)/100f);
-        Debug.Log("Damage dealt o Wave: " + builgingLevel.ToString() + " " + ((builgingLevel / 2f) * (1f - (WaveResist + 55f) / 100f)).ToString());
     }
 
     public void GeneratObstacel(int builgingLevel, int addisionForse) //uderzyl w przeszkode

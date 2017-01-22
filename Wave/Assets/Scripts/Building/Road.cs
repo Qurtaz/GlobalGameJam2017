@@ -12,7 +12,6 @@ public class Road : MonoBehaviour {
         {
             Roads[i].SetActive(false);
         }
-        Debug.Log("Wlaczylem " + a);
         Roads[a].SetActive(true);
     }
 }

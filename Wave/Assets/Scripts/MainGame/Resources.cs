@@ -35,9 +35,9 @@ public class Resources : MonoBehaviour {
         {
             if (house != null)
             {
-                Cities city = house.GetComponent<Cities>();
-                maxCurrentPeople +=city.maxPeople;
-                allCurrentPeople += city.people;
+                NormalBuilding normBuild = house.GetComponent<NormalBuilding>();
+                maxCurrentPeople +=normBuild.maxPeople;
+                allCurrentPeople += normBuild.currentPeople;
             }
         }
         ChangeHealth(allCurrentPeople,maxCurrentPeople);

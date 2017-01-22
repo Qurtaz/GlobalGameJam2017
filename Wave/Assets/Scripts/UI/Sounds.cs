@@ -30,6 +30,7 @@ public class Sounds : MonoBehaviour {
         music.loop = true;
         music.Play();
         LevelEvents.StartLevel += PlayAlter;
+        LevelEvents.EndLevel += StopWave;
 	}
 	
 	// Update is called once per frame
@@ -80,6 +81,7 @@ public class Sounds : MonoBehaviour {
     }
     public void PlayeWave()//
     {
+        wave.loop = true;
         wave.Play();
     }
     public void  PlayAlter()//
@@ -90,5 +92,9 @@ public class Sounds : MonoBehaviour {
     private void PlayAlterSe()
     {
         alter.Play();
+    }
+    public void StopWave()
+    {
+        wave.Stop();
     }
 }

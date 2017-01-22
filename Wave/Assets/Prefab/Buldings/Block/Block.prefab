@@ -101,4 +101,6 @@ MonoBehaviour:
   maxHP: 0
   generateMoney: 0
   upgrade: 0
+  maxPeople: 0
+  people: 0
   data: {fileID: 114665078098117436}

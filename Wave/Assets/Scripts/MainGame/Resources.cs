@@ -9,7 +9,7 @@ public class Resources : MonoBehaviour {
     public void ChangeMoney(int change)
     {
         Money += change;
-        MoneyText.GetComponent<Text>().text = Money.ToString();
+        MoneyText.GetComponent<Text>().text = "Money: " + Money.ToString();
     }
 
     public void ChangeHealth(float people, float maxPeople)
@@ -18,7 +18,7 @@ public class Resources : MonoBehaviour {
 
         Health = Mathf.RoundToInt(ratio);
 
-        HealthText.GetComponent<Text>().text = Health.ToString() + "%";
+        HealthText.GetComponent<Text>().text = "Health: " + Health.ToString() + "%";
     }
 
     public void ChangeIncome(float people, float income)
@@ -26,6 +26,6 @@ public class Resources : MonoBehaviour {
         float weight = 0.1f;
         Income = Mathf.RoundToInt((people*weight) * income);
 
-        IncomeText.GetComponent<Text>().text = Income.ToString();
+        IncomeText.GetComponent<Text>().text = "Income: " + Income.ToString();
     }
 }

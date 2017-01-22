@@ -7,7 +7,7 @@ public class MasterController : MonoBehaviour
     public GameObject cameraSupport;
     public ControlUI control;
 
-    public GameObject Info, Building, Trap, Menu;
+    public GameObject Menu, Info;
 
     void Update()
     {
@@ -52,7 +52,20 @@ public class MasterController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            control.Menage(hit.transform.gameObject);
+            if (hit.transform.tag == "Bulding")
+            {
+                Info.SetActive(true);
+                //ChangeMoney(100); 
+                //control.Menage(hit.transform.gameObject);
+            }
+            else
+            {
+                Info.SetActive(false);
+            }
+        }
+        else
+        {
+            Info.SetActive(false);
         }
     }
 

@@ -70,6 +70,8 @@ MonoBehaviour:
   middelFloor: {fileID: 1801084740009480, guid: a06fc4a908e481e4b8e9d9b829dc79ca,
     type: 2}
   lastFloor: {fileID: 1469987404798514, guid: 3c3e00dbf312dc54b8d85655d3f35c9e, type: 2}
+  Roof: {fileID: 1925436767959816, guid: b28cfbee2a702e04493208394ac10bb2, type: 2}
+  RoofAddon: {fileID: 0}
   building: {fileID: 0}
   allFlors:
   - {fileID: 0}
@@ -87,7 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  HiddenField: {fileID: 0}
   generateMoney: 30.5
   upgrade: 1
   maxPeople: 0
-  people: 0
+  currentPeople: 0

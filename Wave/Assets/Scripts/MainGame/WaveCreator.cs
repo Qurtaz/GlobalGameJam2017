@@ -13,6 +13,7 @@ public class WaveCreator : MonoBehaviour {
 
     void Start () {
         //CreateIncomingWaves(5, 2);
+        
 	}
 	
 	public void CreateIncomingWaves(float HeightWaves, int WaveStrength)

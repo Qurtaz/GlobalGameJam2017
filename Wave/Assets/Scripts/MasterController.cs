@@ -8,6 +8,7 @@ public class MasterController : MonoBehaviour
     public ControlUI control;
 
     public GameObject Menu, Info;
+    public GameObject resource;
 
     void Update()
     {
@@ -55,7 +56,7 @@ public class MasterController : MonoBehaviour
             if (hit.transform.tag == "Bulding")
             {
                 Info.SetActive(true);
-                //ChangeMoney(100); 
+                //resource.GetComponent<Resources>().ChangeIncome(100,1000); 
                 //control.Menage(hit.transform.gameObject);
             }
             else

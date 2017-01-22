@@ -1592,7 +1592,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game create:\nPawe\u0142 Winiecki\nDaniel Kowalski"
+  m_Text: "Game create:\nPawe\u0142 Winiecki\nDaniel Kowalski\nSebastian Wilk\n\nMuzyka:\nLeszek
+    Karczewski | DamnDog.pl"
 --- !u!222 &1456440854
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Building : MonoBehaviour {
     public float maxHP;
@@ -12,6 +13,8 @@ public abstract class Building : MonoBehaviour {
     protected float cost;
     protected float stamina;
     protected MenagerBuilding menager;
+    protected string description;
+    protected Image image;
     // Use this for initialization
     void Start () {
         hp = maxHP;
@@ -22,7 +25,26 @@ public abstract class Building : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    public Image GetImage()
+    {
+        return image;
+    }
+    public float GetStatima()
+    {
+        return stamina;
+    }
+    public string GetDesription()
+    {
+        return description;
+    }
+    public float GetHP()
+    {
+        return hp;
+    }
+    public float GetMaxHP()
+    {
+        return maxHP;
+    }
     public void MinuesHP(float z)
     {
         hp = hp - stamina*z;
@@ -41,10 +63,6 @@ public abstract class Building : MonoBehaviour {
     public virtual void  Work(GameObject Vawe)
     {
 
-    }
-    public float GetHP()
-    {
-        return hp;
     }
     public int GetLevelBuilding()
     {

@@ -52,7 +52,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.5, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114316580122833652
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   middelFloor: {fileID: 1801084740009480, guid: a06fc4a908e481e4b8e9d9b829dc79ca,
     type: 2}
   lastFloor: {fileID: 1469987404798514, guid: 3c3e00dbf312dc54b8d85655d3f35c9e, type: 2}
-  flore: {fileID: 1950009458656924, guid: 08d132b6bf47da7499970b1f0ee918ae, type: 2}
+  building: {fileID: 0}
   allFlors:
   - {fileID: 0}
   - {fileID: 0}
@@ -89,3 +89,5 @@ MonoBehaviour:
   maxHP: 100
   generateMoney: 30.5
   upgrade: 1
+  maxPeople: 0
+  people: 0

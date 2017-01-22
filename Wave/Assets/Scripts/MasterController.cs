@@ -8,7 +8,7 @@ public class MasterController : MonoBehaviour
     public ControlUI control;
 
     public GameObject Menu, Info;
-    //public GameObject resource;
+    public GameObject resource;
 
     Transform swivel, stick;
     float zoom = 1f;
@@ -83,10 +83,11 @@ public class MasterController : MonoBehaviour
             if (hit.transform.tag == "Bulding")
             {
                 Info.SetActive(true);
-                //resource.GetComponent<Resources>().ChangeIncome(100,50);
+                resource.GetComponent<Resources>().CalculateHealth;
                 Building b = hit.transform.gameObject.GetComponent<Building>();
                 Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.GetStatima(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true);
                 //control.Menage(hit.transform.gameObject);
+
             }
             else
             {
@@ -99,7 +100,7 @@ public class MasterController : MonoBehaviour
         }
     }
 
-    void PauseGame(bool state)
+    public void PauseGame(bool state)
     {
         if (state == true)
         {

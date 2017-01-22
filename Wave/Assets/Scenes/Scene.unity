@@ -1397,7 +1397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 25, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &374392157
@@ -1731,7 +1731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 25, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445617807
@@ -2054,7 +2054,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c964089eaa72a5540a6b321c7e5c1b89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36f0ac11a232c854289ac5893c9e67a3, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4989,6 +4989,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1155742659}
+        m_MethodName: PauseGame
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1393057608
@@ -5790,7 +5801,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c964089eaa72a5540a6b321c7e5c1b89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36f0ac11a232c854289ac5893c9e67a3, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6437,7 +6448,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c964089eaa72a5540a6b321c7e5c1b89, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36f0ac11a232c854289ac5893c9e67a3, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7050,7 +7061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 40, y: 0}
+  m_AnchoredPosition: {x: 25, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033697132
@@ -7129,6 +7140,8 @@ MonoBehaviour:
     type: 2}
   PrefabFoundation: {fileID: 1247167980308404, guid: d70421dd4da2a914580df87a22a9de3d,
     type: 2}
+  LandT: {fileID: 1729820912757480, guid: a8d656a56cb9f4a41b9b8ce3f4ce9f2d, type: 2}
+  BulidT: {fileID: 1205781084275090, guid: 3b128af3d7d68334cac0d15c8cd51c83, type: 2}
   Ghost: {fileID: 1304189657637008, guid: a4257f54c5d5225428278afafc6873de, type: 2}
   CountBuildingsT2: 2
   CountBuildingsT1: 4
@@ -7152,8 +7165,10 @@ MonoBehaviour:
   - {fileID: 1929210909601840, guid: 912054a0201fef84585ebe9687347f52, type: 2}
   - {fileID: 1226198438312458, guid: 86e51cdaecb429a469126e8cb7ec32b9, type: 2}
   Water: {fileID: 1678415598453424, guid: 81f84182479873646bbe312c6ac296c0, type: 2}
-  Earth: {fileID: 1287948304787884, guid: 1614c59f65dec0541a9106b1e3e32ce5, type: 2}
+  WaterT: {fileID: 1289202614547924, guid: fa127e524053ff840be27a7351f40911, type: 2}
+  BeachT: {fileID: 1293796657559088, guid: ffb13ef16f00a5547a552c1919ecb0e8, type: 2}
   Reef: {fileID: 1808943440490746, guid: 5f6d82a0a534a4744ab30bf6f53d9961, type: 2}
+  FieldsWaterLength: 3
 --- !u!4 &2044937794
 Transform:
   m_ObjectHideFlags: 0

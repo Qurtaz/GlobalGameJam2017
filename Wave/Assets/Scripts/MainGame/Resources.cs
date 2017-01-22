@@ -29,11 +29,17 @@ public class Resources : MonoBehaviour {
 
     public void CalculateHealth()
     {
-        //GameObject[] 
-        //foreach (GameObject panel in Panels)
-        //{
-        //    panel.SetActive(false);
-        //}
-        ChangeHealth(10,100);
+        int allCurrentPeople = 0, maxCurrentPeople = 0;
+        
+        foreach (GameObject house in Generator.Houses)
+        {
+            if (house != null)
+            {
+                Cities city = house.GetComponent<Cities>();
+                maxCurrentPeople +=city.maxPeople;
+                allCurrentPeople += city.people;
+            }
+        }
+        ChangeHealth(allCurrentPeople,maxCurrentPeople);
     }
 }

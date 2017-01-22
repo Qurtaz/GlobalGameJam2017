@@ -30,8 +30,7 @@ public class LevelMenager : MonoBehaviour {
             yield return new WaitForSeconds(DelayWaveTime - (ActualLevel));
             WC.CreateIncomingWaves(2 + ActualLevel*0.3f, 2); 
         }
-        IsWaveIncoming = false;
-
+        LevelEvents.SetState(LevelEvents.States.EndLvl);
 
     }
 

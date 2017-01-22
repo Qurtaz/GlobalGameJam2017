@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
+    
 
     [Range(0, 40)]
     public float WaveResist = 10f;
@@ -98,7 +99,17 @@ public class Wave : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        height -= Time.deltaTime * DroppingSpeed;
+        if (GetComponent<WaveMoving>().rewind)
+        {
+            height -= Time.deltaTime * DroppingSpeed*4;
+        }
+        else
+        {
+            height -= Time.deltaTime * DroppingSpeed;
+        }
+
+        
+        
         if (TimeToLerp < 1)
         {
             TimeToLerp += Time.deltaTime* ViewSpeedLerping;
@@ -123,9 +134,13 @@ public class Wave : MonoBehaviour {
             return;
         }
         builgingLevel += 1;
-        
+
+        if (Height < builgingLevel * 1.5 + 0.5f)
+        {
+            GetComponent<WaveMoving>().RewindWave();
+        }
         Height -= (builgingLevel/2) * (1f-(WaveResist+55)/100f);
-        Debug.Log("Damage dealt o Wave: " + builgingLevel.ToString() + " " + ((builgingLevel / 2f) * (1f - (WaveResist + 55f) / 100f)).ToString());
+        
     }
 
     public void GeneratObstacel(int builgingLevel, int addisionForse) //uderzyl w przeszkode
@@ -136,7 +151,12 @@ public class Wave : MonoBehaviour {
         }
         builgingLevel += 1;
         
-        Height -= (builgingLevel*5 + addisionForse/2)/10 * (1f - (WaveResist + 55 )/ 100f);
+        if (Height < builgingLevel * 1.5 + 0.5f)
+        {
+            GetComponent<WaveMoving>().RewindWave();
+        }
+        Height -= (builgingLevel*5 + addisionForse/2)/10 * (1f - (WaveResist + 55 )/ 100f); //10 force = 1 lvl in dmg
+        
     }
 
 }

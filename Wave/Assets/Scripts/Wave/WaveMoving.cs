@@ -10,6 +10,7 @@ public class WaveMoving : MonoBehaviour
     public GameObject[] States;
 
     
+    
     public Vector3 Direct = new Vector3(0, 0, 1);
 
     
@@ -48,6 +49,7 @@ public class WaveMoving : MonoBehaviour
     {
         States[0].SetActive(false);
         States[1].SetActive(true);
+        States[2].GetComponent<Animation>().Play("Back");
         rewind = true;
     }
 }

@@ -485,6 +485,7 @@ MonoBehaviour:
   Weight: 0.99
   Lenght: 3
   StartSpeed: 50
+  height: 3
   DroppingSpeed: 0.05
   ViewSpeedLerping: 0.5
 --- !u!114 &114669971128760572
@@ -502,7 +503,6 @@ MonoBehaviour:
   - {fileID: 1655878492758712}
   - {fileID: 1168310773883148}
   Direct: {x: 0, y: 0, z: 1}
-  MinimalHeightLimit: 2
   rewind: 0
 --- !u!114 &114721843700259208
 MonoBehaviour:

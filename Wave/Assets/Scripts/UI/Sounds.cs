@@ -9,6 +9,7 @@ public class Sounds : MonoBehaviour {
     public AudioSource destroying;
     public AudioSource wave;
     public AudioSource money;
+    public AudioSource alter;
 
     //Muzyka
     public float volume;
@@ -21,6 +22,7 @@ public class Sounds : MonoBehaviour {
     void Start () {
         music.loop = true;
         music.Play();
+        LevelEvents.StartLevel += PlayAlter;
 	}
 	
 	// Update is called once per frame
@@ -58,8 +60,12 @@ public class Sounds : MonoBehaviour {
     {
         money.Play();
     }
-    public void PlayeWave()
+    public void PlayeWave()//
     {
         wave.Play();
+    }
+    public void  PlayAlter()//
+    {
+        alter.Play();
     }
 }

@@ -1,16 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Resources : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    static int Money, Health, Income;
+    public GameObject MoneyText, HealthText, IncomeText;
+
+    public void ChangeMoney(int change)
+    {
+        Money += change;
+        MoneyText.GetComponent<Text>().text = "Money: " + Money.ToString();
+    }
+
+    public void ChangeHealth(float people, float maxPeople)
+    {
+        float ratio = (people / maxPeople)*100;
+
+        Health = Mathf.RoundToInt(ratio);
+
+        HealthText.GetComponent<Text>().text = "Health: " + Health.ToString() + "%";
+    }
+
+    public void ChangeIncome(float people, float income)
+    {
+        float weight = 0.1f;
+        Income = Mathf.RoundToInt((people*weight) * income);
+
+        IncomeText.GetComponent<Text>().text = "Income: " + Income.ToString();
+    }
 }

@@ -15,6 +15,7 @@ public class Hospital : Cities {
         fortificationLevet = 0;
         stamina = 1;
         upgrade = true;
+        maxPeople = 0;
 	}
 	
 	// Update is called once per frame

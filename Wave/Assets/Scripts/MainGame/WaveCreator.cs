@@ -8,6 +8,7 @@ public class WaveCreator : MonoBehaviour {
     public Vector2 StartPosition;
     public float RandomizeRange = 0.2f;
     public int Height;
+    public Sounds sounds;
 
 
     void Start () {
@@ -17,6 +18,7 @@ public class WaveCreator : MonoBehaviour {
 	public void CreateIncomingWaves(float HeightWaves, int WaveStrength)
     {
         GameObject NewWave;
+        sounds.PlayeWave();
         for(int i = 0; i < TerrainGenerator.width ; i++)
         {
             NewWave = Instantiate(WaveObj, new Vector3(i + StartPosition.x, Height, StartPosition.y) , transform.rotation) as GameObject;

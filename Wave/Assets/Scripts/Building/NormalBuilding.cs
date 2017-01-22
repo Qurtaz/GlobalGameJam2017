@@ -15,6 +15,7 @@ public class NormalBuilding : Cities {
         fortificationLevet = 0;
         stamina = 1;
         upgrade = false;
+        maxPeople = 15 + builgingLevel * maxPeople;
         //data = GetComponent<MenagerBuilding>();
     }
 	

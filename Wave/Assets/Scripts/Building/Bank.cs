@@ -15,6 +15,7 @@ public class Bank : Cities {
         fortificationLevet = 0;
         stamina = 0.95f;
         upgrade = true;
+        maxPeople = 0;
     }
 	
 	// Update is called once per frame

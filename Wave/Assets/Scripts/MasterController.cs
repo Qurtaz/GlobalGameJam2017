@@ -7,10 +7,30 @@ public class MasterController : MonoBehaviour
     public GameObject cameraSupport;
     public ControlUI control;
 
-    public GameObject Info, Building, Trap, Menu;
+    public GameObject Menu, Info;
+    public GameObject resource;
+
+    Transform swivel, stick;
+    float zoom = 1f;
+    public float stickMinZoom, stickMaxZoom;
+
+    void Awake()
+    {
+        swivel = transform.GetChild(0);
+        stick = swivel.GetChild(0);
+    }
 
     void Update()
     {
+        if (Time.timeScale > 0)
+        {
+            float zoomDelta = -Input.GetAxis("Mouse ScrollWheel");
+            if (zoomDelta != 0f)
+            {
+                AdjustZoom(zoomDelta);
+            }
+        }
+
         if (Input.GetButtonDown("Cancel") == true)
         {
             if (Menu.activeSelf == true)
@@ -46,13 +66,34 @@ public class MasterController : MonoBehaviour
         }
     }
 
+    void AdjustZoom(float delta)
+    {
+        zoom = Mathf.Clamp01(zoom + delta);
+
+        float distance = Mathf.Lerp(stickMinZoom, stickMaxZoom, zoom);
+        stick.localPosition = new Vector3(0f, 0f, distance);
+    }
+
     void HandleInput()
     {
         Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit))
         {
-            control.Menage(hit.transform.gameObject);
+            if (hit.transform.tag == "Bulding")
+            {
+                Info.SetActive(true);
+                resource.GetComponent<Resources>().ChangeIncome(100,50); 
+                //control.Menage(hit.transform.gameObject);
+            }
+            else
+            {
+                Info.SetActive(false);
+            }
+        }
+        else
+        {
+            Info.SetActive(false);
         }
     }
 

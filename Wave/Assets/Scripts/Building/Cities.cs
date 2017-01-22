@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Cities : Building {
     public float generateMoney;
     public bool upgrade;
+    public int maxPeople;
+    public int people; 
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +16,11 @@ public abstract class Cities : Building {
 	void Update () {
 		
 	}
+    public override void UpgradeBuilding()
+    {
+        base.UpgradeBuilding();
+        maxPeople += 15;
+    }
     public override void Work(GameObject Vawe)
     {
         Wave z = Vawe.GetComponent<Wave>();
@@ -33,5 +40,8 @@ public abstract class Cities : Building {
         else
             return upgrade;
     }
-    
+    public override float Income()
+    {
+        return base.Income()+ generateMoney;
+    }
 }

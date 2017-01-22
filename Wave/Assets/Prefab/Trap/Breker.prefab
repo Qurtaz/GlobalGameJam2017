@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256819843185432}
   - component: {fileID: 114782092460724318}
+  - component: {fileID: 65992547989676398}
   m_Layer: 0
   m_Name: Breker
   m_TagString: Untagged
@@ -110,6 +111,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1804335039836008}
   m_Mesh: {fileID: 4300000, guid: 81f46cb101746bf4aa19c81b25495088, type: 3}
+--- !u!65 &65992547989676398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167506751401912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95073198631653416
 Animator:
   serializedVersion: 3

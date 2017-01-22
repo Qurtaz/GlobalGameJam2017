@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class NormalBuilding : Cities {
     public MenagerBuilding data;
+    public static float incomeWeight = 0.1f;
+
 	// Use this for initialization
 	void Start () {
         maxHP = 100;
         hp = maxHP;
-        generateMoney = 5;
         maxFortificationlevel = 3;
         maxBuildingLevel = 3;
         builgingLevel = 0;
         fortificationLevet = 0;
         stamina = 0.70f;
         upgrade = false;
-        maxPeople = 15 + builgingLevel * maxPeople;
+        maxPeople = (builgingLevel+1) * 15;
+        //currentPeople = maxPeople;
+        //generateMoney = currentPeople*incomeWeight;
         //data = GetComponent<MenagerBuilding>();
     }
 	

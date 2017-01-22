@@ -29,6 +29,10 @@ public class LevelEvents : MonoBehaviour {
 
     public static void SetState(States ToSet)
     {
+        if (LevelMenager.IsWaveIncoming)
+        {
+            return;
+        }
         switch (ToSet)
         {
             case States.StartLvL:

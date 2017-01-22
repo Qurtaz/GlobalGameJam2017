@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
 public class MasterController : MonoBehaviour
@@ -119,7 +121,15 @@ public class MasterController : MonoBehaviour
                 {
                     if(Resources.Money >= buildingCost)
                     {
-                        Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
+                        NormalBuilding tmp = null;
+                        GameObject tmp2;
+                        tmp2 = Instantiate(toBuild, hit.transform.gameObject.transform.position - new Vector3(0,0.5f,0), transform.rotation);
+                        tmp = tmp2.GetComponent<NormalBuilding>();
+
+                        if(tmp != null)
+                        {
+                            StartCoroutine("Delay", tmp);
+                        }
                         Resources.ChangeMoney(-buildingCost);
                     }
 
@@ -149,6 +159,14 @@ public class MasterController : MonoBehaviour
         {
             Info.SetActive(false);
         }
+    }
+
+
+    IEnumerator Delay(NormalBuilding no)
+    {
+        Debug.Log("DODODDO");
+        yield return new WaitForSeconds(0.1f);
+        no.SetLevelBuilding(0);
     }
 
     public void PauseGame(bool state)

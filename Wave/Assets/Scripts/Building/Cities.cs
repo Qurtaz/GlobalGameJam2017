@@ -6,9 +6,10 @@ public abstract class Cities : Building {
     public float generateMoney;
     public bool upgrade;
     public int maxPeople;
-    public int currentPeople; 
-	// Use this for initialization
-	void Start () {
+    public int currentPeople;
+    public MenagerBuilding data;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -21,7 +22,14 @@ public abstract class Cities : Building {
         base.UpgradeBuilding();
         maxPeople += 15;
     }
-    
+
+    public void SetLevelBuilding(int z)
+    {
+        builgingLevel = z;
+        Debug.Log("Set builgingLevel = " + builgingLevel.ToString());
+        data.Refresh();
+    }
+
     public void AddMoney()
     {
         Resources.ChangeMoney((int)(generateMoney + generateMoney*builgingLevel));

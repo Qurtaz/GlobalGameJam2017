@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NormalBuilding : Cities {
-    public MenagerBuilding data;
+   
 
     public static float incomeWeight = 0.1f;
 
@@ -22,6 +22,7 @@ public class NormalBuilding : Cities {
         currentPeople = maxPeople;
         generateMoney = currentPeople*incomeWeight;
         //data = GetComponent<MenagerBuilding>();
+        LevelEvents.EndLevel += AddMoney;
     }
 	
 	// Update is called once per frame
@@ -29,16 +30,19 @@ public class NormalBuilding : Cities {
 		
 	}
 
-    public void SetLevelBuilding(int z)
+    public void AddMoney()
     {
-        builgingLevel = z;
-        Debug.Log("Set builgingLevel = " + builgingLevel.ToString());
-        data.Refresh();
+        Resources.ChangeMoney(50);
     }
 
     public override void Work(GameObject Vawe)
     {
         Debug.Log("builgingLevel = " + builgingLevel.ToString());
         Vawe.GetComponent<Wave>().GeneratObstacel(builgingLevel);
+    }
+
+    void OnDestroy()
+    {
+        LevelEvents.EndLevel -= AddMoney;
     }
 }

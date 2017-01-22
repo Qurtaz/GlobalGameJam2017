@@ -7,6 +7,8 @@ public class Generator : MonoBehaviour {
     public int length = 10;
     public int width = 100;
 
+    public static GameObject[] Houses;
+
     public int OffsetGeneratorX = 0;
     public int OffsetGeneratorZ = 0;
 
@@ -24,6 +26,7 @@ public class Generator : MonoBehaviour {
     {
         Randomize();
         Generate();
+        Houses = new GameObject[(width - 4) * length / 2];
     }
 
     int[] UpgradesBulid;
@@ -114,6 +117,7 @@ public class Generator : MonoBehaviour {
                             //Instantiate(PrefabBuilding, GetPosition(i, j, -0.5f), transform.rotation);
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
+                            Houses[CountOfHouse] = tmp;
                             tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
                             Instantiate(Ghost, GetPosition(i, j), transform.rotation);
                             CountOfHouse++;

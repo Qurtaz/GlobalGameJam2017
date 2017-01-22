@@ -561,7 +561,7 @@ MonoBehaviour:
   Lenght: 3
   StartSpeed: 50
   height: 3
-  DroppingSpeed: 0.8
+  DroppingSpeed: 0.1
   ViewSpeedLerping: 0.2
 --- !u!114 &114669971128760572
 MonoBehaviour:

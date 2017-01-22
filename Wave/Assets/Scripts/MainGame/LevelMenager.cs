@@ -28,8 +28,8 @@ public class LevelMenager : MonoBehaviour {
         for (int i = 0; i < 1; i++)
         {
             Debug.Log("BlaBla");
-            //yield return new WaitForSeconds(DelayWaveTime - (ActualLevel));
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(DelayWaveTime - (ActualLevel));
+            
             WC.CreateIncomingWaves(2.5f + ActualLevel*0.3f, 2); 
         }
         while (true)

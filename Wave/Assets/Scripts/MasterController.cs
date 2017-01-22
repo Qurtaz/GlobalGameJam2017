@@ -123,7 +123,7 @@ public class MasterController : MonoBehaviour
                     {
                         NormalBuilding tmp = null;
                         GameObject tmp2;
-                        tmp2 = Instantiate(toBuild, hit.transform.gameObject.transform.position - new Vector3(0,0.5f,0), transform.rotation);
+                        tmp2 = Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
                         tmp = tmp2.GetComponent<NormalBuilding>();
 
                         if(tmp != null)

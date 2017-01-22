@@ -83,8 +83,7 @@ public class MasterController : MonoBehaviour
             if (hit.transform.tag == "Bulding")
             {
                 Info.SetActive(true);
-                resource.GetComponent<Resources>().ChangeIncome(100,50); 
-                //control.Menage(hit.transform.gameObject);
+                //resource.GetComponent<Resources>().ChangeIncome(100,50); 
             }
             else
             {

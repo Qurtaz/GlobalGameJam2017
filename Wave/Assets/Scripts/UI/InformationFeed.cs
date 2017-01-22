@@ -15,10 +15,10 @@ public class InformationFeed : MonoBehaviour {
         isBuildUpon = false;
     }
 
-    void feedInfo(int life, int resistance, int income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild)
+    void feedInfo(int life, float resistance, int income, string info, Image image, bool canUpgrade, bool canReinforce, bool canBuild)
     {
         LifeText.GetComponent<Text>().text = "Life: " + life.ToString();
-        ResistanceText.GetComponent<Text>().text = "Resistance: " + resistance.ToString();
+        ResistanceText.GetComponent<Text>().text = "Resistance: " + (resistance*100).ToString() + "%";
 
         if (income>=0)
             IncomeText.GetComponent<Text>().text = "Income: " + income.ToString();

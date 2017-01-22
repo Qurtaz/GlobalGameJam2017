@@ -9,7 +9,6 @@ public class RndomeMaterial : MonoBehaviour {
 	void Start () {
         men = GetComponent<MenagerBuilding>();
         int d = Random.Range(0, materialList.Count);
-        Debug.Log(d);
         foreach (GameObject z in men.allFlors)
         {
             

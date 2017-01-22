@@ -39,7 +39,7 @@ public abstract class Building : MonoBehaviour {
     }
     public float GetHP()
     {
-        return hp;
+        return (int)hp;
     }
     public float GetMaxHP()
     {

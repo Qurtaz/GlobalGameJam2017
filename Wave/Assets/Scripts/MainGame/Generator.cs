@@ -156,7 +156,6 @@ public class Generator : MonoBehaviour {
                     H[2] = HaveRoad(i + 1, j);
                     H[3] = HaveRoad(i, j - 1);
                 //Debug.Log("Sytuacja: " + H[0].ToString() + H[1].ToString() + H[2].ToString() + H[3].ToString());
-                    Debug.Log(i.ToString() + " " + j);
                     if (H[0] && H[1] && H[2] && H[3])
                     {
                         RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(2);
@@ -225,7 +224,6 @@ public class Generator : MonoBehaviour {
 
                 else
                     {
-                        Debug.Log("Nie znalazlem sytuacji");
                         RoadInstantiate[i, j].GetComponent<Road>().SetTypeRoad(2);
                     }
                     

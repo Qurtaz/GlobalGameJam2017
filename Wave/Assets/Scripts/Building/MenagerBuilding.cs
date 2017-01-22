@@ -6,6 +6,8 @@ public class MenagerBuilding : MonoBehaviour {
     public GameObject groundFloor;
     public GameObject middelFloor;
     public GameObject lastFloor;
+    public GameObject Roof;
+    public GameObject RoofAddon;
     public Building building;
     public List<GameObject> allFlors;
 
@@ -25,6 +27,7 @@ public class MenagerBuilding : MonoBehaviour {
         {
             allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation)); 
             allFlors[0].transform.parent = gameObject.transform;
+            Roof.transform.position = new Vector3(gameObject.transform.position.x, 0.5f, gameObject.transform.position.z);
             return;
         }
             allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation)); 
@@ -39,6 +42,9 @@ public class MenagerBuilding : MonoBehaviour {
             GameObject tmp = Instantiate(lastFloor, new Vector3(gameObject.transform.position.x, ActualLevel + 0.5f, gameObject.transform.position.z), gameObject.transform.rotation);
             allFlors.Add(tmp);
             allFlors[ActualLevel].transform.parent = gameObject.transform;
+
+        Roof.transform.position = new Vector3(gameObject.transform.position.x, ActualLevel + 0.5f, gameObject.transform.position.z);
+
     }
 
     /*void Start () {

@@ -123,8 +123,9 @@ public class Wave : MonoBehaviour {
             return;
         }
         builgingLevel += 1;
-        Debug.Log("dziala");
-        Height -= builgingLevel * (1f-(WaveResist+55)/100f);
+        
+        Height -= (builgingLevel/2) * (1f-(WaveResist+55)/100f);
+        Debug.Log("Damage dealt o Wave: " + builgingLevel.ToString() + " " + ((builgingLevel / 2f) * (1f - (WaveResist + 55f) / 100f)).ToString());
     }
 
     public void GeneratObstacel(int builgingLevel, int addisionForse) //uderzyl w przeszkode
@@ -134,7 +135,7 @@ public class Wave : MonoBehaviour {
             return;
         }
         builgingLevel += 1;
-        Debug.Log("dziala");
+        
         Height -= (builgingLevel*5 + addisionForse/2)/10 * (1f - (WaveResist + 55 )/ 100f);
     }
 

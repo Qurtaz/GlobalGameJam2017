@@ -487,7 +487,7 @@ MonoBehaviour:
   StartSpeed: 50
   height: 3
   DroppingSpeed: 0.05
-  ViewSpeedLerping: 0.5
+  ViewSpeedLerping: 0.2
 --- !u!114 &114669971128760572
 MonoBehaviour:
   m_ObjectHideFlags: 1

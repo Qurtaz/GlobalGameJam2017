@@ -5,7 +5,7 @@ using UnityEngine;
 public class RndomeMaterial : MonoBehaviour {
     public List<Material> materialList;
     private MenagerBuilding men;
-	// Use this for initialization
+	
 	void Start () {
         men = GetComponent<MenagerBuilding>();
         int d = Random.Range(0, materialList.Count);
@@ -15,7 +15,9 @@ public class RndomeMaterial : MonoBehaviour {
             
             z.GetComponentInChildren<Renderer>().material = materialList[d];
         }
-	}
+        men.Roof.GetComponentInChildren<Renderer>().material = materialList[d];
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

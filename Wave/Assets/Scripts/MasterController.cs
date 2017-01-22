@@ -18,6 +18,8 @@ public class MasterController : MonoBehaviour
     public int typeOfBuilding;
     public int buildingCost;
 
+    public GameObject Show;
+
     void Awake()
     {
         swivel = transform.GetChild(0);
@@ -100,16 +102,33 @@ public class MasterController : MonoBehaviour
                 default: tagToBuild = string.Empty;
                     break;
             }
-
+            Debug.Log(tagToBuild + " " + hit.transform.tag);
             if (tagToBuild != string.Empty)
             {
+                 
+
                  if (hit.transform.tag != tagToBuild)
                  {
-                     toBuild = null;
+                        Show.GetComponent<ShowPlace>().SwitchOffAll();
+                        toBuild = null;
                      typeOfBuilding = 0;
                      buildingCost = 0;
                      return;
                  }
+                else
+                {
+                    if(Resources.Money >= buildingCost)
+                    {
+                        Instantiate(toBuild, hit.transform.gameObject.transform.position, transform.rotation);
+                        Resources.ChangeMoney(-buildingCost);
+                    }
+
+                    Show.GetComponent<ShowPlace>().SwitchOffAll();
+                    toBuild = null;
+                    typeOfBuilding = 0;
+                    buildingCost = 0;
+                    return;
+                }
             }
 
             if (hit.transform.tag == "Bulding")
@@ -117,7 +136,7 @@ public class MasterController : MonoBehaviour
                 Info.SetActive(true);
                 //resource.GetComponent<Resources>().CalculateHealth();
                 Building b = hit.transform.gameObject.GetComponent<Building>();
-                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.GetStatima(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true);
+                Info.GetComponent<InformationFeed>().feedInfo(b.GetHP(), b.GetMaxHP(), b.Income(), b.GetDesription(), b.GetImage(), b.CanUpgradeBuinding(), b.CanUpgradeFortifiactiong(), true);
                 //control.Menage(hit.transform.gameObject);
 
             }

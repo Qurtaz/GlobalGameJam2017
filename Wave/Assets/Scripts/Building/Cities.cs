@@ -24,7 +24,7 @@ public abstract class Cities : Building {
     
     public void AddMoney()
     {
-        Player.money += generateMoney + generateMoney*builgingLevel;
+        Resources.ChangeMoney((int)(generateMoney + generateMoney*builgingLevel));
     }
     public override bool CanUpgradeBuinding()
     {

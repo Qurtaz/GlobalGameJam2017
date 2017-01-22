@@ -13,7 +13,7 @@ public class Wall : Obstacel {
         builgingLevel = 0;
         fortificationLevet = 0;
         stamina = 0.7f;
-        addisionForse = 60;
+        addisionForse = 35;
     }
 	
 	// Update is called once per frame

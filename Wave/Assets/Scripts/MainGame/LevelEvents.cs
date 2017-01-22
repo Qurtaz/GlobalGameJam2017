@@ -22,6 +22,11 @@ public class LevelEvents : MonoBehaviour {
     }
     public enum States {StartLvL,EndLvl,EndGame};
 
+    public void StartMatch()
+    {
+        SetState(States.StartLvL);
+    }
+
     public static void SetState(States ToSet)
     {
         switch (ToSet)

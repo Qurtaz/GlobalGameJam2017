@@ -15,6 +15,9 @@ public abstract class Building : MonoBehaviour {
     protected MenagerBuilding menager;
     protected string description;
     protected Image image;
+
+    public GameObject HiddenField;
+
     // Use this for initialization
     void Start () {
         hp = maxHP;
@@ -47,7 +50,7 @@ public abstract class Building : MonoBehaviour {
     }
     public void MinuesHP(float z)
     {
-        hp = hp - stamina*z;
+        hp = hp - z;
         if (hp <= 0)
         {
             if (builgingLevel >= 0)

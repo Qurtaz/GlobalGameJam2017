@@ -13,7 +13,7 @@ public class SandBags : Obstacel {
         builgingLevel = 0;
         fortificationLevet = 0;
         stamina = 0.8f;
-        addisionForse = 20;
+        addisionForse = 15;
     }
 	
 	// Update is called once per frame

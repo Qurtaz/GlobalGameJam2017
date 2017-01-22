@@ -13,6 +13,7 @@ public class Generator : MonoBehaviour {
     public GameObject PrefabRoad;
     public GameObject PrefabBuilding;
     public GameObject PrefabFoundation;
+    public GameObject Ghost;
 
     public int CountBuildingsT2 = 2;
     public int CountBuildingsT1 = 4;
@@ -114,6 +115,7 @@ public class Generator : MonoBehaviour {
                             GameObject tmp;
                             tmp = Instantiate(PrefabBuilding, GetPosition(i,j, -0.5f), transform.rotation) as GameObject;
                             tmp.GetComponent<NormalBuilding>().SetLevelBuilding(UpgradesBulid[CountOfHouse]);
+                            Instantiate(Ghost, GetPosition(i, j), transform.rotation);
                             CountOfHouse++;
                         }
                     }

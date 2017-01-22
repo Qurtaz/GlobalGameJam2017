@@ -26,6 +26,6 @@ public class NormalBuilding : Cities {
     public void SetLevelBuilding(int z)
     {
         builgingLevel = z;
-        data.Operaction();
+        data.Refresh();
     }
 }

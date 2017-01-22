@@ -7,10 +7,13 @@ public class RndomeMaterial : MonoBehaviour {
     private MenagerBuilding men;
 	// Use this for initialization
 	void Start () {
-        int d  = (int)Random.Range(0, materialList.Count);
-        foreach(GameObject z in men.allFlors)
+        men = GetComponent<MenagerBuilding>();
+        int d = Random.Range(0, materialList.Count);
+        Debug.Log(d);
+        foreach (GameObject z in men.allFlors)
         {
-            z.GetComponent<Renderer>().material = materialList[d];
+            
+            z.GetComponentInChildren<Renderer>().material = materialList[d];
         }
 	}
 	

@@ -57,9 +57,11 @@ public abstract class Building : MonoBehaviour {
     }
     public void UpgradeBuilding()
     {
-        menager.Operaction();
+        
         builgingLevel++;
         hp = maxHP;
+        menager.Refresh();
+       
     }
     public virtual bool CanUpgradeBuinding()
     {

@@ -6,26 +6,53 @@ public class MenagerBuilding : MonoBehaviour {
     public GameObject groundFloor;
     public GameObject middelFloor;
     public GameObject lastFloor;
-    public GameObject flore;
-    private Building building;
+    public Building building;
     public List<GameObject> allFlors;
-    // Use this for initialization
 
-    void Awake() {
-        allFlors.Clear();
+    void Awake() {     
+        allFlors = new List<GameObject>(); 
     }
-    void Start () {
+
+    public void Refresh()
+    {
+        for (int i = 0; i < allFlors.Count; i++)
+        {
+            Destroy(allFlors[i]);
+            
+        }
+        allFlors = new List<GameObject>();
+        if (building.GetLevelBuilding() == 0)
+        {
+            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation)); 
+            allFlors[0].transform.parent = gameObject.transform;
+            return;
+        }
+            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation)); 
+            allFlors[0].transform.parent = gameObject.transform;
+            int ActualLevel = 1;
+            while (ActualLevel < building.GetLevelBuilding())
+            {
+                allFlors.Add(Instantiate(middelFloor, new Vector3(gameObject.transform.position.x, ActualLevel + 0.5f, gameObject.transform.position.z), gameObject.transform.rotation));
+                allFlors[ActualLevel].transform.parent = gameObject.transform;
+                ActualLevel++;
+            }
+            GameObject tmp = Instantiate(lastFloor, new Vector3(gameObject.transform.position.x, ActualLevel + 0.5f, gameObject.transform.position.z), gameObject.transform.rotation);
+            allFlors.Add(tmp);
+            allFlors[ActualLevel].transform.parent = gameObject.transform;
+    }
+
+    /*void Start () {
         building = gameObject.GetComponent<Building>();
         allFlors = new List<GameObject>();
         if(building.GetLevelBuilding() == 0)
         {
-            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
-            allFlors[0].transform.parent = gameObject.transform;
+           // allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+            //allFlors[0].transform.parent = gameObject.transform;
         }
         else
         {
-            allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
-            allFlors[0].transform.parent = gameObject.transform;
+            //allFlors.Add(Instantiate(groundFloor, gameObject.transform.position, gameObject.transform.rotation));
+            //allFlors[0].transform.parent = gameObject.transform;
             allFlors.Add(Instantiate(lastFloor, gameObject.transform.position, gameObject.transform.rotation));
             allFlors[1].transform.parent = gameObject.transform;
             for (int i = 2; i <= building.GetLevelBuilding(); i++)
@@ -34,15 +61,15 @@ public class MenagerBuilding : MonoBehaviour {
                 allFlors[1].transform.parent = gameObject.transform;
             }
         }
-        allFlors.Add(Instantiate(flore, gameObject.transform.position, gameObject.transform.rotation));
-        allFlors[allFlors.Count - 1].transform.parent = gameObject.transform;
+        //allFlors.Add(Instantiate(flore, gameObject.transform.position, gameObject.transform.rotation));
+        //allFlors[allFlors.Count - 1].transform.parent = gameObject.transform;
         Operaction();
 	}
 	
 	// Update is called once per frame
 	public void Operaction () {
         Add();
-        while ((allFlors.Count > building.GetLevelBuilding() + 2))
+        while ((allFlors.Count > building.GetLevelBuilding() + 1))
         {
             Debug.Log("Polska");
             GameObject a = allFlors[1];
@@ -97,5 +124,5 @@ public class MenagerBuilding : MonoBehaviour {
                 allFlors[1].transform.parent = gameObject.transform;
             }
         }
-    }
+    }*/
 }

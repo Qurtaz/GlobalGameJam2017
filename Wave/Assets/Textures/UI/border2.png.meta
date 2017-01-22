@@ -1,20 +1,10 @@
 fileFormatVersion: 2
-guid: c964089eaa72a5540a6b321c7e5c1b89
-timeCreated: 1485065909
+guid: 82d2d4101a9bc704887919acf960e840
+timeCreated: 1485067053
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: border_0
-    21300002: border_2
-    21300004: border_8
-    21300006: border_6
-    21300008: border_1
-    21300010: border_3
-    21300012: border_5
-    21300014: border_7
-    21300016: border_4
-    21300018: border_9
-    21300020: border_10
+    21300000: border2_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -30,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -38,10 +28,10 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: -1
     aniso: 16
     mipBias: -1
-    wrapMode: 0
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -89,7 +79,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: border_0
+      name: border2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -98,11 +88,11 @@ TextureImporter:
         height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 44, z: 40, w: 40}
+      border: {x: 48, y: 60, z: 48, w: 60}
       outline: []
       tessellationDetail: 0
     outline: []
-  spritePackingTag: ramka
+  spritePackingTag: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 

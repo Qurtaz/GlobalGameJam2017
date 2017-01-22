@@ -19,8 +19,8 @@ public class NormalBuilding : Cities {
         stamina = 0.70f;
         upgrade = false;
         maxPeople = (builgingLevel+1) * 15;
-        //currentPeople = maxPeople;
-        //generateMoney = currentPeople*incomeWeight;
+        currentPeople = maxPeople;
+        generateMoney = currentPeople*incomeWeight;
         //data = GetComponent<MenagerBuilding>();
     }
 	

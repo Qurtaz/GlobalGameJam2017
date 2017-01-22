@@ -6,7 +6,7 @@ public abstract class Cities : Building {
     public float generateMoney;
     public bool upgrade;
     public int maxPeople;
-    public int people; 
+    public int currentPeople; 
 	// Use this for initialization
 	void Start () {
 		

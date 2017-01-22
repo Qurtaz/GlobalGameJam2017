@@ -7,6 +7,8 @@ TagManager:
   - Bulding
   - BeachTile
   - WaterTile
+  - LandTile
+  - SpecialTile
   layers:
   - Default
   - TransparentFX

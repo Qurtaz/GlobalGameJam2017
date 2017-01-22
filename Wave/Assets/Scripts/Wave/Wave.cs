@@ -8,7 +8,7 @@ public class Wave : MonoBehaviour {
     [Range(0, 40)]
     public float WaveResist = 10f;
 
-    public static int DistanceLimit = 10;
+    public static int DistanceLimit = 100;
     public static float MinimalHeight = 0.5f;
 
     public float Weight = 1;
@@ -48,7 +48,7 @@ public class Wave : MonoBehaviour {
         }
     }
 
-    float height = 3;
+    public float height = 3;
     public float Height 
     {
         get
@@ -108,6 +108,7 @@ public class Wave : MonoBehaviour {
         {
             
             transform.localScale = new Vector3(Weight, height, Lenght);
+            CheckHeight();
         }
         
 

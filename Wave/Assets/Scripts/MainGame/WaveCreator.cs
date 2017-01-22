@@ -14,7 +14,7 @@ public class WaveCreator : MonoBehaviour {
         CreateIncomingWaves(3, 2);
 	}
 	
-	void CreateIncomingWaves(int HeightWaves, int WaveStrength)
+	public void CreateIncomingWaves(float HeightWaves, int WaveStrength)
     {
         GameObject NewWave;
         for(int i = 0; i < TerrainGenerator.width ; i++)

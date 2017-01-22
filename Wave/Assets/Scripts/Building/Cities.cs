@@ -19,7 +19,7 @@ public abstract class Cities : Building {
         Wave z = Vawe.GetComponent<Wave>();
         if (z != null)
         {
-   //         z.GeneratObstacel(builgingLevel);
+            z.GeneratObstacel(builgingLevel);
         }
     }
     public void AddMoney()

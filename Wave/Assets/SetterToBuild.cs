@@ -36,10 +36,19 @@ public void Sending()
     {
         yield return new WaitForEndOfFrame();
         Show.GetComponent<ShowPlace>().SwitchOffAll();
-        rayObject.GetComponent<MasterController>().typeOfBuilding = TypeToSend;
-        rayObject.GetComponent<MasterController>().toBuild = toSend;
-        rayObject.GetComponent<MasterController>().buildingCost = CostToSend;
-        Show.GetComponent<ShowPlace>().SetOn(TypeToSend);
+        if (Resources.Money >= CostToSend)
+        {
+            
+            rayObject.GetComponent<MasterController>().typeOfBuilding = TypeToSend;
+            rayObject.GetComponent<MasterController>().toBuild = toSend;
+            rayObject.GetComponent<MasterController>().buildingCost = CostToSend;
+            Show.GetComponent<ShowPlace>().SetOn(TypeToSend);
+        }
+        else
+        {
+            Message.Set("You don't have enough money");
+        }
+        
     }
 
 

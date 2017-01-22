@@ -85,5 +85,10 @@ public class Sounds : MonoBehaviour {
     public void  PlayAlter()//
     {
         alter.Play();
+        Invoke("PlayAlterSe", 5);
+    }
+    private void PlayAlterSe()
+    {
+        alter.Play();
     }
 }
